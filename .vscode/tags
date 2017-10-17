@@ -6,7 +6,7 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 0001_initial.py	../video/migrations/0001_initial.py	1;"	kind:file	line:1
 0002_video_thumbnail.py	../video/migrations/0002_video_thumbnail.py	1;"	kind:file	line:1
-ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = [*]$/;"	kind:variable	line:28
+ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = ['*']$/;"	kind:variable	line:28
 AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:93
 BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
 DATABASES	../deep_player/settings.py	/^DATABASES = {$/;"	kind:variable	line:77
