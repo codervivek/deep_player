@@ -6,11 +6,11 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 0001_initial.py	../video/migrations/0001_initial.py	1;"	kind:file	line:1
 0002_video_thumbnail.py	../video/migrations/0002_video_thumbnail.py	1;"	kind:file	line:1
-ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:28
+ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = [*]$/;"	kind:variable	line:28
 AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:93
 BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
 DATABASES	../deep_player/settings.py	/^DATABASES = {$/;"	kind:variable	line:77
-DEBUG	../deep_player/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+DEBUG	../deep_player/settings.py	/^DEBUG = False$/;"	kind:variable	line:26
 INSTALLED_APPS	../deep_player/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
 LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:112
 MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:127
@@ -46,6 +46,7 @@ embed	../video/models.py	/^    embed = models.TextField(max_length=2000, null=Tr
 field	../video/migrations/0002_video_thumbnail.py	/^            field=models.TextField(max_length=1000, null=True),$/;"	kind:variable	line:18
 fields	../deep_player/forms.py	/^        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )/;"	kind:variable	line:13
 fields	../video/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:22
+fileupload	../video/views.py	/^def fileupload(request):$/;"	kind:function	line:39
 first_name	../deep_player/forms.py	/^    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:7
 forms.py	../deep_player/forms.py	1;"	kind:file	line:1
 get_absolute_url	../video/models.py	/^    def get_absolute_url(self):$/;"	kind:member	line:19
