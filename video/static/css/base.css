@@ -1,0 +1,13 @@
+h1,h6{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+iframe{
+    width: 100%;
+}

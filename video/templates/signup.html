@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="uk-flex-middle">
+<div class="uk-card uk-card-default">
+  <div class="uk-card-header">
+    <h1 class="uk-text-center">Sign up</h1>
+  </div>
+  <div class="uk-card-body">
+    <form action="" method="post">
+          <div class="form-group">
+          {% csrf_token %}
+          <table>
+          {{ form.as_table }}
+          </table><hr><div class="uk-text-center">
+          <input type="submit" value="Submit" class="uk-button uk-button-default"/></div>
+          </div>
+      </form>
+  </div>
+</div> 
+</div>
+{% endblock %}

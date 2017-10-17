@@ -1,0 +1,76 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+0001_initial.py	../video/migrations/0001_initial.py	1;"	kind:file	line:1
+0002_video_thumbnail.py	../video/migrations/0002_video_thumbnail.py	1;"	kind:file	line:1
+ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:28
+AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:93
+BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
+DATABASES	../deep_player/settings.py	/^DATABASES = {$/;"	kind:variable	line:77
+DEBUG	../deep_player/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+INSTALLED_APPS	../deep_player/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
+LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:112
+MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:127
+MEDIA_URL	../deep_player/settings.py	/^MEDIA_URL = '\/media\/'/;"	kind:variable	line:128
+MIDDLEWARE	../deep_player/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:43
+Meta	../deep_player/forms.py	/^    class Meta:$/;"	kind:class	line:11
+Migration	../video/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:11
+Migration	../video/migrations/0002_video_thumbnail.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+ROOT_URLCONF	../deep_player/settings.py	/^ROOT_URLCONF = 'deep_player.urls'$/;"	kind:variable	line:53
+STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:126
+SignUpForm	../deep_player/forms.py	/^class SignUpForm(UserCreationForm):$/;"	kind:class	line:6
+TEMPLATES	../deep_player/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
+TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:114
+USE_I18N	../deep_player/settings.py	/^USE_I18N = True$/;"	kind:variable	line:116
+USE_L10N	../deep_player/settings.py	/^USE_L10N = True$/;"	kind:variable	line:118
+USE_TZ	../deep_player/settings.py	/^USE_TZ = True$/;"	kind:variable	line:120
+Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
+VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
+VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:36
+WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
+__init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
+__init__.py	../video/__init__.py	1;"	kind:file	line:1
+__init__.py	../video/migrations/__init__.py	1;"	kind:file	line:1
+__str__	../video/models.py	/^    def __str__(self):$/;"	kind:member	line:22
+admin.py	../video/admin.py	1;"	kind:file	line:1
+application	../deep_player/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../video/apps.py	1;"	kind:file	line:1
+created_date	../video/models.py	/^    created_date = models.DateTimeField(default=timezone.now)$/;"	kind:variable	line:13
+dependencies	../video/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:15
+dependencies	../video/migrations/0002_video_thumbnail.py	/^    dependencies = [$/;"	kind:variable	line:10
+email	../deep_player/forms.py	/^    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')$/;"	kind:variable	line:9
+embed	../video/models.py	/^    embed = models.TextField(max_length=2000, null=True, blank=True)$/;"	kind:variable	line:15
+field	../video/migrations/0002_video_thumbnail.py	/^            field=models.TextField(max_length=1000, null=True),$/;"	kind:variable	line:18
+fields	../deep_player/forms.py	/^        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )/;"	kind:variable	line:13
+fields	../video/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:22
+first_name	../deep_player/forms.py	/^    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:7
+forms.py	../deep_player/forms.py	1;"	kind:file	line:1
+get_absolute_url	../video/models.py	/^    def get_absolute_url(self):$/;"	kind:member	line:19
+index	../video/views.py	/^def index(request):$/;"	kind:function	line:27
+initial	../video/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
+last_name	../deep_player/forms.py	/^    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:8
+manage.py	../manage.py	1;"	kind:file	line:1
+model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
+model	../video/views.py	/^    model=Video$/;"	kind:variable	line:37
+model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
+models.py	../video/models.py	1;"	kind:file	line:1
+name	../video/apps.py	/^    name = 'video'$/;"	kind:variable	line:5
+name	../video/migrations/0001_initial.py	/^            name='Video',$/;"	kind:variable	line:21
+name	../video/migrations/0002_video_thumbnail.py	/^            name='thumbnail',$/;"	kind:variable	line:17
+name	../video/models.py	/^    name=models.TextField(max_length=2000, help_text="Enter video name")$/;"	kind:variable	line:9
+operations	../video/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:19
+operations	../video/migrations/0002_video_thumbnail.py	/^    operations = [$/;"	kind:variable	line:14
+settings.py	../deep_player/settings.py	1;"	kind:file	line:1
+signup	../video/views.py	/^def signup(request):$/;"	kind:function	line:11
+tests.py	../video/tests.py	1;"	kind:file	line:1
+thumbnail	../video/models.py	/^    thumbnail = models.TextField(max_length=1000, null=True)$/;"	kind:variable	line:17
+urlpatterns	../deep_player/urls.py	/^urlpatterns = [$/;"	kind:variable	line:9
+urlpatterns	../video/urls.py	/^urlpatterns = [$/;"	kind:variable	line:7
+urls.py	../deep_player/urls.py	1;"	kind:file	line:1
+urls.py	../video/urls.py	1;"	kind:file	line:1
+user	../video/models.py	/^    user=models.ForeignKey(User, related_name="videos", on_delete=models.CASCADE, help_text="a")$/;"	kind:variable	line:11
+views.py	../video/views.py	1;"	kind:file	line:1
+wsgi.py	../deep_player/wsgi.py	1;"	kind:file	line:1

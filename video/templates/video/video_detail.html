@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ video.name }}{% endblock %}
+
+{% block content %}
+<div class="uk-card uk-card-default uk-card-large uk-card-body">
+        <div class="uk-card-media-top">
+                <iframe src="https://www.videoindexer.ai/embed/player/{{video.embed}}" id="myIframe" frameborder="0" allowfullscreen></iframe>
+            </div>
+    <h3 class="uk-card-title">{{video.name}}</h3>
+</div>
+
+{% block extra_js %}
+<script type="text/javascript" language="javascript"> 
+  $('#myIframe').css('height', $(window).height()*.7*.75+'px');
+  </script>
+{% endblock extra_js %}  
+{% endblock %}
