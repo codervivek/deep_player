@@ -8,7 +8,22 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans" rel="stylesheet"> 
-    <link rel="stylesheet" href="{% static "css/base.css" %}" type="text/css" media="screen" /> 
+    <style>
+        h1,h6{
+            font-family: 'Nunito', sans-serif;
+            font-weight: 100;
+        }
+        
+        body{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+        }
+        
+        iframe{
+            width: 100%;
+        }
+        
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
 	{% block extra_head %}{% endblock %}
 </head>
