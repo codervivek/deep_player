@@ -7,26 +7,26 @@
 0001_initial.py	../video/migrations/0001_initial.py	1;"	kind:file	line:1
 0002_video_thumbnail.py	../video/migrations/0002_video_thumbnail.py	1;"	kind:file	line:1
 ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = ['*']$/;"	kind:variable	line:28
-AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:93
+AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:99
 BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
-DATABASES	../deep_player/settings.py	/^DATABASES = {$/;"	kind:variable	line:77
-DEBUG	../deep_player/settings.py	/^DEBUG = False$/;"	kind:variable	line:26
+DATABASES	../deep_player/settings.py	/^DATABASES = {$/;"	kind:variable	line:88
+DEBUG	../deep_player/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
 INSTALLED_APPS	../deep_player/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
-LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:112
-MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:127
-MEDIA_URL	../deep_player/settings.py	/^MEDIA_URL = '\/media\/'/;"	kind:variable	line:128
+LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:118
+MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:133
+MEDIA_URL	../deep_player/settings.py	/^MEDIA_URL = '\/media\/'/;"	kind:variable	line:134
 MIDDLEWARE	../deep_player/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:43
 Meta	../deep_player/forms.py	/^    class Meta:$/;"	kind:class	line:11
 Migration	../video/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:11
 Migration	../video/migrations/0002_video_thumbnail.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
 ROOT_URLCONF	../deep_player/settings.py	/^ROOT_URLCONF = 'deep_player.urls'$/;"	kind:variable	line:53
-STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:126
+STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:132
 SignUpForm	../deep_player/forms.py	/^class SignUpForm(UserCreationForm):$/;"	kind:class	line:6
 TEMPLATES	../deep_player/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
-TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:114
-USE_I18N	../deep_player/settings.py	/^USE_I18N = True$/;"	kind:variable	line:116
-USE_L10N	../deep_player/settings.py	/^USE_L10N = True$/;"	kind:variable	line:118
-USE_TZ	../deep_player/settings.py	/^USE_TZ = True$/;"	kind:variable	line:120
+TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:120
+USE_I18N	../deep_player/settings.py	/^USE_I18N = True$/;"	kind:variable	line:122
+USE_L10N	../deep_player/settings.py	/^USE_L10N = True$/;"	kind:variable	line:124
+USE_TZ	../deep_player/settings.py	/^USE_TZ = True$/;"	kind:variable	line:126
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
 VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:36

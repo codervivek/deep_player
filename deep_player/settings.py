@@ -25,7 +25,7 @@ SECRET_KEY = 'eyr8=0a6ou02h&y-slh!g4g+nppr8l%3!@ajzf8usm87ii)tjx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.92.247.122','deep-player.eastus.cloudapp.azure.com','localhost']
 
 
 # Application definition
