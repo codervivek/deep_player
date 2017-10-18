@@ -32,15 +32,16 @@
         <div class="uk-navbar-left">
     
             <a class="uk-navbar-item uk-logo" href="{% url 'home' %}">Deep Player</a>
-    
+            {% if user.is_authenticated %}
             <ul class="uk-navbar-nav">
                 <li>
-                    <a href="#">
+                    <a href="{% url 'my_videos' %}">
                         <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
-                        Videos
+                        My Videos
                     </a>
                 </li>
             </ul>
+            {% endif %}
         </div>
         <div class="uk-navbar-right">
                 {% if not user.is_authenticated %}

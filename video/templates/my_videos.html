@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}My Videos{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<div class="uk-text-center"><h1>My Videos</h1></div><hr>
+<div class="uk-flex uk-flex-around uk-flex-wrap">
+    {% for video in videos %}
+    {% if video.user.id == user.id %}
+    <a href="{{ video.get_absolute_url }}" class="uk-button uk-button-text">
+          <div class="uk-card uk-card-hover uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                <div class="uk-card-media-left uk-cover-container">
+                    {% if video.thumbnail %}
+                    <img src="{{video.thumbnail}}" alt="" uk-cover >
+                    {% else %}
+                    <img src="https://media.giphy.com/media/F0uq8iiIL6F6E/giphy.gif" height="80" width="100" alt="" uk-cover >
+                    {% endif %}
+                    <canvas width="100" height="40"></canvas>
+                </div>
+                <div>
+                    <div class="uk-card-body">
+                        <h6 class="uk-card-title">{{ video.name }}</h6>
+                        {% if video.user.id is user.id %}
+                        <p><div class="uk-card-footer uk-text-muted uk-text-small">Posted by you at {{ video.created_date}}</div></p>
+                        {% else %}
+                        <div class="uk-card-footer uk-text-muted uk-text-small">{{ video.user.username }} posted at {{ video.created_date}}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endblock %}

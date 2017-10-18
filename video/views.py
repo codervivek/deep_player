@@ -29,9 +29,6 @@ def index(request):
     video = Video.objects.annotate(
         max_created=Max("created_date")
     ).order_by("-max_created")
-
-    
-
     return render(request, 'index.html', {'videos': video})
 
 class VideoDetailView(generic.DetailView):
@@ -76,3 +73,9 @@ def fileupload(request):
     else:
         form=UploadForm
     return render(request, 'upload.html',{'form':form})
+
+def my_videos(request):
+    video = Video.objects.annotate(
+        max_created=Max("created_date")
+    ).order_by("-max_created")
+    return render(request, 'my_videos.html', {'videos': video})
