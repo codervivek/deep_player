@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^', include('video.urls')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls,name='admin'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^signup/$', signup, name='signup'),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

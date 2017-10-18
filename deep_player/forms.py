@@ -11,3 +11,10 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+
+class UploadForm(forms.Form):
+    name = forms.CharField(max_length=50,help_text="Enter the name of the video")
+    url = forms.CharField(max_length=1000,help_text="Enter the URL of the video")
+    user = forms.CharField(max_length='5',help_text="a")
+    class Meta:
+        fields = ('name','url','user')

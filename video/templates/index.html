@@ -10,7 +10,11 @@
     <a href="{{ video.get_absolute_url }}" class="uk-button uk-button-text">
           <div class="uk-card uk-card-hover uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                 <div class="uk-card-media-left uk-cover-container">
+                    {% if video.thumbnail %}
                     <img src="{{video.thumbnail}}" alt="" uk-cover >
+                    {% else %}
+                    <img src="{% static 'images/Processing.jpg' %}" alt="" uk-cover >
+                    {% endif %}
                     <canvas width="100" height="40"></canvas>
                 </div>
                 <div>

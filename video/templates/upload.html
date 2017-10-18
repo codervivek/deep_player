@@ -1,20 +1,44 @@
 {% include "base.html" %}
 
 {% block content %} 
-<div class="uk-flex-middle">
+<div class="uk-flex-middle uk-container">
 <div class="uk-card uk-card-default">
   <div class="uk-card-header">
     <h1 class="uk-text-center">Upload Video</h1>
   </div>
   <div class="uk-card-body">
-    {% comment %} <form action="" method="post"> {% endcomment %}
+      <form action="" method="post">
           <div class="uk-form-group">
           {% csrf_token %}
-          <input id="video-upload-file" type="file">
-          <hr><div class="uk-text-center">
-          <input type="submit" value="Submit" class="uk-button uk-button-default" onclick=upload_file_func() /></div>
+          <!-- <table>
+            {{ form.as_table }}
+            </table><hr> -->
+            {% for field in form %}
+            {% if not field.help_text == "a" %}
+                <div class="form-group row">
+                    <div class="col-3">
+                      <p>{{ field.label_tag }}</p>
+                    </div> 
+                    <div class="col-5">{{ field }}</div> 
+                    {% if field.help_text %}<div class="form-helptext text-muted col-4">{{ field.help_text }}</div>{% endif %}
+                    {% if field.errors %}
+                    <div class="col-12">
+                        <br>
+                        <ul class="form-errors alert alert-danger">
+                        {% for error in field.errors %}
+                            <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                        </ul>
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}<hr>
+            {% endfor %}
+            <input name="user" type="hidden" value="{{user.id}}"/>
+          <div class="uk-text-center">
+          <input type="submit" value="Submit" class="uk-button uk-button-default"/></div>
           </div>
-      {% comment %} </form> {% endcomment %}
+      </form>
   </div>
 </div> 
 </div>

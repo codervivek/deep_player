@@ -12,7 +12,7 @@ class Video(models.Model):
 
     created_date = models.DateTimeField(default=timezone.now)
 
-    embed = models.TextField(max_length=2000, null=True, blank=True)
+    embed = models.TextField(max_length=2000, null=True, blank=True, help_text='Enter the ID of Video')
 
     thumbnail = models.TextField(max_length=1000, null=True)
 
