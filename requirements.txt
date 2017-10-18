@@ -8,15 +8,20 @@ asn1crypto==0.23.0
 attrs==17.2.0
 autobahn==17.9.3
 Automat==0.6.0
+awsebcli==3.12.0
 Babel==2.5.1
 beautifulsoup4==4.4.1
+blessed==1.14.2
 blinker==1.3
+botocore==1.7.30
 Brlapi==0.6.4
+cement==2.8.2
 cffi==1.11.0
 channels==1.1.8
 chardet==2.3.0
 checkbox-support==0.22
 click==6.7
+colorama==0.3.7
 command-not-found==0.3
 constantly==15.1.0
 cryptography==2.0.3
@@ -27,6 +32,10 @@ django-channels-panel==0.0.5
 django-debug-toolbar==1.8
 django-widget-tweaks==1.4.1
 djangorestframework==3.6.4
+docker-py==1.7.2
+dockerpty==0.4.1
+docopt==0.6.2
+docutils==0.14
 feedparser==5.1.3
 Flask==0.12.2
 Flask-API==1.0
@@ -48,6 +57,7 @@ idna==2.6
 incremental==17.5.0
 itsdangerous==0.24
 Jinja2==2.8
+jmespath==0.9.3
 language-selector==0.1
 louis==2.6.4
 lxml==3.5.0
@@ -58,6 +68,7 @@ oauthlib==1.0.3
 onboard==1.2.0
 oneconf==0.3.9
 padme==1.1.1
+pathspec==0.5.0
 pexpect==4.0.1
 Pillow==3.1.2
 piston-mini-client==0.7.5
@@ -81,10 +92,12 @@ python-editor==1.0.3
 python-systemd==231
 pytz==2017.2
 pyxdg==0.25
+PyYAML==3.12
 redis==2.10.6
 reportlab==3.3.0
 requests==2.9.1
 screen-resolution-extra==0.0.0
+semantic-version==2.5.0
 service-identity==17.0.0
 sessioninstaller==0.0.0
 six==1.11.0
@@ -92,6 +105,8 @@ software-center-aptd-plugins==0.0.0
 SQLAlchemy==1.1.14
 sqlparse==0.2.3
 system-service==0.3
+tabulate==0.7.5
+termcolor==1.1.0
 Twisted==17.9.0
 txaio==2.8.2
 ubuntu-drivers-common==0.0.0
@@ -113,6 +128,7 @@ unity-scope-zotero==0.1
 urllib3==1.13.1
 usb-creator==0.3.0
 virtualenv==15.0.1
+wcwidth==0.1.7
 websocket-client==0.44.0
 Werkzeug==0.12.2
 xdiagnose==3.8.4.1
