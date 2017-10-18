@@ -31,6 +31,7 @@ def index(request):
     ).order_by("-max_created")
 
     
+
     return render(request, 'index.html', {'videos': video})
 
 class VideoDetailView(generic.DetailView):
