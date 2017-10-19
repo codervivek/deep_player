@@ -131,5 +131,44 @@ class SearchListView(ListView):
 
         return qs
 
+def sceneSearch(request):
+    qs = Video.objects.all()
+    movie = request.GET.get('movie')
+    m = 'abc'
+    string = 'ab'
+    if movie:
+        query = SearchQuery(movie)
+        vector=SearchVector('name')
+        qs = qs.annotate(search=vector).filter(search=query)
+        qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+        m = qs[:1]
+        q = request.GET.get('q')
+        headers = {
+            # Request headers
+            'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+        }
+
+        params = urllib.parse.urlencode({
+            # Request parameters
+            'id': m[0].embed,
+            'query': q,
+            'pageSize': '1',
+        })
+
+        try:
+            conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+            conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
+            response = conn.getresponse()
+            string = response.read().decode('utf-8')
+            print(string)
+            conn.close()
+        except Exception as e:
+            print("[Errno {0}] {1}".format(e.errno, e.strerror))
+        # return render(request, 'video/video_detail.html', {'video': video})
+    else:
+        m = qs
+    return render(request, 'json.html', {'xyz':string})
+
+
 class VideoListView(ListView):
     model = Video
