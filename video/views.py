@@ -29,26 +29,32 @@ def index(request):
     video = Video.objects.annotate(
         max_created=Max("created_date")
     ).order_by("-max_created")
+    for vi in video:
+        if not (vi.thumbnail):
+            headers = {
+                # Request headers
+                'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+            }
 
-    headers = {
-        # Request headers
-        'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
-    }
+            params = urllib.parse.urlencode({
+                # Request parameters
+                'id': vi.embed,
+            })
 
-    params = urllib.parse.urlencode({
-        # Request parameters
-        'id': video[0].embed,
-    })
-
-    try:
-        conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
-        conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/{id}?%s" % params, "", headers)
-        response = conn.getresponse()
-        data = response.read()
-        print(data)
-        conn.close()
-    except Exception as e:
-        print("[Errno {0}] {1}".format(e.errno, e.strerror))
+            try:
+                conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+                conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/{id}?%s" % params, "", headers)
+                response = conn.getresponse()
+                string = response.read().decode('utf-8')
+                json_obj = json.loads(string)
+                v=Video.objects.get(id=vi.id)
+                v.json=string
+                v.thumbnail=json_obj["summarizedInsights"]["thumbnailUrl"]
+                v.save()
+                print(json_obj["summarizedInsights"]["thumbnailUrl"])
+                conn.close()
+            except Exception as e:
+                print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
 
     return render(request, 'index.html', {'videos': video})

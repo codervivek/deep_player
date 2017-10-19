@@ -16,6 +16,8 @@ class Video(models.Model):
 
     thumbnail = models.TextField(max_length=1000, null=True)
 
+    json = models.TextField(max_length=500000, null=True)
+
     def get_absolute_url(self):
         return reverse('video-detail', args=[str(self.id)])
 
