@@ -47,11 +47,13 @@ def index(request):
                 response = conn.getresponse()
                 string = response.read().decode('utf-8')
                 json_obj = json.loads(string)
-                v=Video.objects.get(id=vi.id)
-                v.json=string
-                v.thumbnail=json_obj["summarizedInsights"]["thumbnailUrl"]
-                v.save()
-                print(json_obj["summarizedInsights"]["thumbnailUrl"])
+                print(json_obj)
+                if(json_obj["state"]=="Processed"):
+                    v=Video.objects.get(id=vi.id)
+                    v.json=string
+                    v.thumbnail=json_obj["summarizedInsights"]["thumbnailUrl"]
+                    v.save()
+                    print(json_obj["summarizedInsights"]["thumbnailUrl"])
                 conn.close()
             except Exception as e:
                 print("[Errno {0}] {1}".format(e.errno, e.strerror))
