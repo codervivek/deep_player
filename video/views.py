@@ -29,7 +29,52 @@ def index(request):
     video = Video.objects.annotate(
         max_created=Max("created_date")
     ).order_by("-max_created")
+
+    headers = {
+        # Request headers
+        'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+    }
+
+    params = urllib.parse.urlencode({
+        # Request parameters
+        'id': video[0].embed,
+    })
+
+    try:
+        conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+        conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/{id}?%s" % params, "", headers)
+        response = conn.getresponse()
+        data = response.read()
+        print(data)
+        conn.close()
+    except Exception as e:
+        print("[Errno {0}] {1}".format(e.errno, e.strerror))
+
+
     return render(request, 'index.html', {'videos': video})
+
+# def index(request):
+
+#     video = Video.objects.annotate(
+#         max_created=Max("created_date")
+#     ).order_by("-max_created")
+#     headers = {
+#         # Request headers
+#         # 'Content-Type': 'multipart/form-data',
+#         'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+#     }
+#     params = urllib.parse.urlencode({
+#         # Request parameters
+#         'id':video[0].embed
+#     })
+
+#     # try:
+#     conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+#     conn.request("POST", "/Breakdowns/Api/Partner/Breakdowns/%s" % params ,"", headers)
+#     response = conn.getresponse()
+#     print(response.read())
+#     json_obj=response.read().decode('utf-8')
+#     return render(request, 'index.html', {'videos': video, 'json':json_obj})
 
 class VideoDetailView(generic.DetailView):
     model=Video
