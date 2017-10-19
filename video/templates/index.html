@@ -21,9 +21,9 @@
                     <div class="uk-card-body">
                         <h6 class="uk-card-title">{{ video.name }}</h6>
                         {% if video.user.id is user.id %}
-                        <p><div class="uk-card-footer uk-text-muted uk-text-small">Posted by you at {{ video.created_date}}</div></p>
+                        <p><div class="uk-card-footer uk-text-muted uk-text-small">Uploaded by you at {{ video.created_date}}</div></p>
                         {% else %}
-                        <div class="uk-card-footer uk-text-muted uk-text-small">{{ video.user.username }} posted at {{ video.created_date}}</div>
+                        <div class="uk-card-footer uk-text-muted uk-text-small">{{ video.user.username }} uploaded at {{ video.created_date}}</div>
                         {% endif %}
                     </div>
                 </div>

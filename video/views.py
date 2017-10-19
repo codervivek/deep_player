@@ -79,3 +79,6 @@ def my_videos(request):
         max_created=Max("created_date")
     ).order_by("-max_created")
     return render(request, 'my_videos.html', {'videos': video})
+
+def xyz(request):
+    return render(request,'xyz.html')
