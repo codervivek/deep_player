@@ -46,14 +46,14 @@ def index(request):
                 conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/{id}?%s" % params, "", headers)
                 response = conn.getresponse()
                 string = response.read().decode('utf-8')
-                json_obj = json.loads(string)
+                # json_obj = json.loads(string)
                 print(json_obj)
                 if(json_obj["state"]=="Processed"):
                     v=Video.objects.get(id=vi.id)
                     v.json=string
                     v.thumbnail=json_obj["summarizedInsights"]["thumbnailUrl"]
                     v.save()
-                    print(json_obj["summarizedInsights"]["thumbnailUrl"])
+                    # print(json_obj["summarizedInsights"]["thumbnailUrl"])
                 conn.close()
             except Exception as e:
                 print("[Errno {0}] {1}".format(e.errno, e.strerror))
@@ -61,28 +61,6 @@ def index(request):
 
     return render(request, 'index.html', {'videos': video})
 
-# def index(request):
-
-#     video = Video.objects.annotate(
-#         max_created=Max("created_date")
-#     ).order_by("-max_created")
-#     headers = {
-#         # Request headers
-#         # 'Content-Type': 'multipart/form-data',
-#         'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
-#     }
-#     params = urllib.parse.urlencode({
-#         # Request parameters
-#         'id':video[0].embed
-#     })
-
-#     # try:
-#     conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
-#     conn.request("POST", "/Breakdowns/Api/Partner/Breakdowns/%s" % params ,"", headers)
-#     response = conn.getresponse()
-#     print(response.read())
-#     json_obj=response.read().decode('utf-8')
-#     return render(request, 'index.html', {'videos': video, 'json':json_obj})
 
 class VideoDetailView(generic.DetailView):
     model=Video
@@ -135,3 +113,23 @@ def my_videos(request):
 
 def xyz(request):
     return render(request,'xyz.html')
+
+from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+from django.views.generic import ListView
+
+class SearchListView(ListView):
+    model = Video
+
+    def get_queryset(self):
+        qs = Video.objects.all()
+        keywords = self.request.GET.get('q')
+        if keywords:
+            query = SearchQuery(keywords)
+            vector = SearchVector('json','name')
+            qs = qs.annotate(search=vector).filter(search=query)
+            qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+
+        return qs
+
+class VideoListView(ListView):
+    model = Video
