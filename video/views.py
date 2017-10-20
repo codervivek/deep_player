@@ -132,6 +132,7 @@ class SearchListView(ListView):
 
 import json
 from django.http import HttpResponse
+# import 
 def sceneSearch(request):
     qs = Video.objects.all()
     movie = request.GET.get('movie')
@@ -159,22 +160,26 @@ def sceneSearch(request):
             'pageSize': '1',
         })
 
-        try:
-            conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
-            conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
-            print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
-            response = conn.getresponse()
-            string = response.read().decode('utf-8')
-            json_obj=json.loads(string)
-            # if(json_obj["results"][0]):
-            #     string=json_obj["results"][0]["searchMatches"][0]["startTime"]
-            print(string)
-            conn.close()
-        except Exception as e:
-            print("[Errno {0}] {1}".format(e.errno, e.strerror))
+        # try:
+        conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+        conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
+        print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
+        response = conn.getresponse()
+        string = response.read().decode('utf-8')
+        json_obj=json.loads(string)
+        if(json_obj["results"][0]):
+            string=json_obj["results"][0]["searchMatches"][0]["startTime"]
+            timestr = string
+            timestr = timestr.split('.')[0]
+            ftr = [3600,60,1]
+            string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+        print(string)
+        conn.close()
+        # except Exception as e:
+        #     print("[Errno {0}] {1}".format(e.errno, e.strerror))
         # return render(request, 'video/video_detail.html', {'video': video})
         return render(request, 'scene.html', {'time':string,'video':m[0]})
-        return HttpResponse(json.dumps(json_obj), content_type="application/json")
+        # return HttpResponse(json.dumps(json_obj), content_type="application/json")
         
     # else:
     #     m = qs

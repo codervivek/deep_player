@@ -40,7 +40,7 @@ UploadForm	../deep_player/forms.py	/^class UploadForm(forms.Form):$/;"	kind:clas
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
 VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:64
-VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:173
+VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:210
 WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
 __init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/__init__.py	1;"	kind:file	line:1
@@ -81,7 +81,7 @@ main.py	../deep_player/main.py	1;"	kind:file	line:1
 manage.py	../manage.py	1;"	kind:file	line:1
 model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
 model	../video/views.py	/^    model = Video$/;"	kind:variable	line:120
-model	../video/views.py	/^    model = Video/;"	kind:variable	line:174
+model	../video/views.py	/^    model = Video/;"	kind:variable	line:211
 model	../video/views.py	/^    model=Video$/;"	kind:variable	line:65
 model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:16
@@ -101,7 +101,7 @@ operations	../video/migrations/0001_initial.py	/^    operations = [$/;"	kind:var
 operations	../video/migrations/0002_video_thumbnail.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0003_auto_20171019_0953.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0004_auto_20171019_0958.py	/^    operations = [$/;"	kind:variable	line:14
-sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:133
+sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:136
 settings.py	../deep_player/settings.py	1;"	kind:file	line:1
 signup	../video/views.py	/^def signup(request):$/;"	kind:function	line:11
 tests.py	../video/tests.py	1;"	kind:file	line:1

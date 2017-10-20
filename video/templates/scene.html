@@ -12,8 +12,7 @@
                 <iframe src="https://www.videoindexer.ai/embed/player/{{video.embed}}" id="viPlayer" frameborder="0" allowfullscreen></iframe>
             </div>
     <h3 class="uk-card-title uk-text-center">{{video.name}} at {{time}}</h3>
-
-<input type="hidden" value="{{time}}" name="time" id="time"/>
+        <input type="hidden" value="{{time}}" name="time" id="time"/>
     <iframe width="580" height="780" src="https://www.videoindexer.ai/embed/insights/{{video.embed}}" frameborder="0" allowfullscreen></iframe>
 </div>
 {% endblock %}
@@ -22,31 +21,26 @@
   $('#viPlayer').css('height', $(window).height()*.7*.75+'px');
   </script>
   <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
-{% endblock extra_js %}  
-
-
-
-<script type="text/javascript" language="javascript">
-    
-    var viPlayerIframe = document.getElementById("viPlayer");
-    var input = document.getElementById("time");
-    window.onload =  function(){
-        console.log("abc");
-        var time = parseFloat(input.value);
-        notifyPlayer(time);
-    }    
-
+    <script>
+    (function(){
+        var viPlayerIframe = document.getElementById("viPlayer");
+        var input = document.getElementById("time");
+        window.onload=xyz;
+        var xyz=setTimeout(function(){
+          var time = parseFloat(input.value);
+          notifyPlayer(time);
+        },10000);
         
-                
         function notifyPlayer(time){
-            // Pass message to other iframe.
-            if ('postMessage' in window) {
+          // Pass message to other iframe.
+          if ('postMessage' in window) {
             try {
                 viPlayerIframe.contentWindow.postMessage({time: time, origin: "https://www.videoindexer.ai"}, "https://www.videoindexer.ai");
             } catch (error) {
-                throw error;
+              throw error;
             }
-            }
+          }
         }
-    }
+      }())
     </script>
+{% endblock extra_js %}  
