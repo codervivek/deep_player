@@ -20,6 +20,8 @@ class Video(models.Model):
 
     processed=models.CharField(max_length=3, null=True)
 
+    adult=models.CharField(max_length=1,null=True)
+
     def get_absolute_url(self):
         return reverse('video-detail', args=[str(self.id)])
 

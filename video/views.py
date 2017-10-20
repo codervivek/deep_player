@@ -29,7 +29,7 @@ def index(request):
         max_created=Max("created_date")
     ).order_by("-max_created")
     for vi in video:
-        if not (vi.json):
+        if not (vi.adult):
             headers = {
                 # Request headers
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
@@ -52,6 +52,11 @@ def index(request):
                     v.json=string
                     v.thumbnail=json_obj["summarizedInsights"]["thumbnailUrl"]
                     v.processed=None
+                    a=json_obj["breakdowns"][0]["insights"]["contentModeration"]["adultClassifierValue"]
+                    if (a>0.8):
+                        v.adult='a'
+                    else:
+                        v.adult='u'
                     v.save()
                     # print(json_obj["summarizedInsights"]["thumbnailUrl"])
                 else:
@@ -173,6 +178,8 @@ def sceneSearch(request):
         response = conn.getresponse()
         string = response.read().decode('utf-8')
         json_obj=json.loads(string)
+        if not (json_obj["results"]):
+            return render(request,'failed.html')
         if(json_obj["results"][0]):
             string=json_obj["results"][0]["searchMatches"][0]["startTime"]
             timestr = string

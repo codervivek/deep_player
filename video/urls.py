@@ -12,5 +12,4 @@ urlpatterns = [
     url(r'^search/$', views.SearchListView.as_view(), name='search_list_view'),
     url(r'^videos/$', views.VideoListView.as_view(), name='video_list'),
     url(r'^scene/$', views.sceneSearch, name='sceneSearch'),
-    # url(r'^search/$', views.SearchListView.as_view(), name='search_list_view'),
 ]
