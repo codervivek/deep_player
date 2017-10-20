@@ -173,6 +173,8 @@ def sceneSearch(request):
             timestr = timestr.split('.')[0]
             ftr = [3600,60,1]
             string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+        else:
+            string = 0
         print(string)
         conn.close()
         # except Exception as e:
@@ -181,30 +183,55 @@ def sceneSearch(request):
         return render(request, 'scene.html', {'time':string,'video':m[0]})
         # return HttpResponse(json.dumps(json_obj), content_type="application/json")
         
-    # else:
-    #     m = qs
-    #     headers = {
-    #         # Request headers
-    #         'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
-    #     }
+    else:
+        m = qs
+        q = request.GET.get('q')
+        if not q:
+            print("1")
+            return render(request, 'index.html',{'videos':Video.objects.all})
+        headers = {
+            # Request headers
+            'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+        }
 
-    #     params = urllib.parse.urlencode({
-    #         # Request parameters
-    #         'id': m[0].embed,
-    #         'query': q,
-    #         'pageSize': '1',
-    #     })
+        params = urllib.parse.urlencode({
+            # Request parameters
+            'query': q,
+        })
 
-    #     try:
-    #         conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
-    #         conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
-    #         print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
-    #         response = conn.getresponse()
-    #         string = response.read().decode('utf-8')
-    #         print(string)
-    #         conn.close()
-    #     except Exception as e:
-    #         print("[Errno {0}] {1}".format(e.errno, e.strerror))
+        # try:
+        conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+        conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
+        print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
+        response = conn.getresponse()
+        string = response.read().decode('utf-8')
+        json_obj=json.loads(string)
+        if (len(json_obj["results"])==1):
+            if(json_obj["results"][0]):
+                string=json_obj["results"][0]["searchMatches"][0]["startTime"]
+                timestr = string
+                timestr = timestr.split('.')[0]
+                ftr = [3600,60,1]
+                string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                for vi in m:
+                    print("6")
+                    print(vi.embed)
+                    print(json_obj["results"][0]["id"])
+                    if(vi.embed==json_obj["results"][0]["id"]):
+                        print("2")
+                        return render(request, 'scene.html', {'time':string,'video':vi})
+            print("3")
+            return render(request, 'index.html',{'videos': Video.objects.all})
+        else:
+            if q:
+                query = SearchQuery(q)
+                vector = SearchVector('json','name')
+                m = m.annotate(search=vector).filter(search=query)
+                m = m.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+            print("5")
+            return render(request, 'video/video_list.html',{'video_list':m})
+        conn.close()
+
 
 
 class VideoListView(ListView):
