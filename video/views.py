@@ -29,7 +29,7 @@ def index(request):
         max_created=Max("created_date")
     ).order_by("-max_created")
     for vi in video:
-        if (vi.json):
+        if not (vi.json):
             headers = {
                 # Request headers
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
