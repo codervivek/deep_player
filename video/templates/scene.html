@@ -10,11 +10,12 @@
 <div class="uk-card uk-card-default uk-card-large uk-card-body">
         <div class="uk-card-media-top">
                 <iframe src="https://www.videoindexer.ai/embed/player/{{video.embed}}" id="viPlayer" frameborder="0" allowfullscreen></iframe>
-            </div>
-    <h3 class="uk-card-title uk-text-center">{{video.name}}</h3>
-        <input type="hidden" value="{{time}}" name="time" id="time"/>
+            
     <iframe width="580" height="780" src="https://www.videoindexer.ai/embed/insights/{{video.embed}}" frameborder="0" allowfullscreen></iframe>
-</div>
+  </div>
+    <input type="hidden" value="{{time}}" name="time" id="time"/>
+    <h3 class="uk-card-title uk-text-center">{{video.name}}</h3>
+  </div>
 {% endblock %}
 {% block extra_js %}
 <script type="text/javascript" language="javascript"> 
@@ -43,4 +44,9 @@
         }
       }())
     </script>
+    {% if video.adult is 'a' %}
+    <script type="text/javascript" language="javascript">
+      UIkit.modal.alert('Adult Content!')
+      </script>
+      {% endif %}
 {% endblock extra_js %}  

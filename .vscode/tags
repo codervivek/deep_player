@@ -8,6 +8,8 @@
 0002_video_thumbnail.py	../video/migrations/0002_video_thumbnail.py	1;"	kind:file	line:1
 0003_auto_20171019_0953.py	../video/migrations/0003_auto_20171019_0953.py	1;"	kind:file	line:1
 0004_auto_20171019_0958.py	../video/migrations/0004_auto_20171019_0958.py	1;"	kind:file	line:1
+0005_video_processed.py	../video/migrations/0005_video_processed.py	1;"	kind:file	line:1
+0006_video_adult.py	../video/migrations/0006_video_adult.py	1;"	kind:file	line:1
 ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = ['13.92.247.122','deep-player.azurewebsites.net','localhost','*']$/;"	kind:variable	line:28
 AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:111
 BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
@@ -26,10 +28,12 @@ Migration	../video/migrations/0001_initial.py	/^class Migration(migrations.Migra
 Migration	../video/migrations/0002_video_thumbnail.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
 Migration	../video/migrations/0003_auto_20171019_0953.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
 Migration	../video/migrations/0004_auto_20171019_0958.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../video/migrations/0005_video_processed.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../video/migrations/0006_video_adult.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
 ROOT_URLCONF	../deep_player/settings.py	/^ROOT_URLCONF = 'deep_player.urls'$/;"	kind:variable	line:53
 STATIC_ROOT	../deep_player/settings.py	/^STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")$/;"	kind:variable	line:144
 STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:145
-SearchListView	../video/views.py	/^class SearchListView(ListView):$/;"	kind:class	line:119
+SearchListView	../video/views.py	/^class SearchListView(ListView):$/;"	kind:class	line:130
 SignUpForm	../deep_player/forms.py	/^class SignUpForm(UserCreationForm):$/;"	kind:class	line:6
 TEMPLATES	../deep_player/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
 TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:132
@@ -39,16 +43,17 @@ USE_TZ	../deep_player/settings.py	/^USE_TZ = True$/;"	kind:variable	line:138
 UploadForm	../deep_player/forms.py	/^class UploadForm(forms.Form):$/;"	kind:class	line:15
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
-VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:64
-VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:210
+VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:75
+VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:251
 WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
 __init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/management/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/management/commands/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/migrations/__init__.py	1;"	kind:file	line:1
-__str__	../video/models.py	/^    def __str__(self):$/;"	kind:member	line:24
+__str__	../video/models.py	/^    def __str__(self):$/;"	kind:member	line:28
 admin.py	../video/admin.py	1;"	kind:file	line:1
+adult	../video/models.py	/^    adult=models.CharField(max_length=1,null=True)$/;"	kind:variable	line:23
 application	../deep_player/main.py	/^application = get_wsgi_application()$/;"	kind:variable	line:5
 application	../deep_player/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
 apps.py	../video/apps.py	1;"	kind:file	line:1
@@ -58,20 +63,24 @@ dependencies	../video/migrations/0001_initial.py	/^    dependencies = [$/;"	kind
 dependencies	../video/migrations/0002_video_thumbnail.py	/^    dependencies = [$/;"	kind:variable	line:10
 dependencies	../video/migrations/0003_auto_20171019_0953.py	/^    dependencies = [$/;"	kind:variable	line:10
 dependencies	../video/migrations/0004_auto_20171019_0958.py	/^    dependencies = [$/;"	kind:variable	line:10
+dependencies	../video/migrations/0005_video_processed.py	/^    dependencies = [$/;"	kind:variable	line:10
+dependencies	../video/migrations/0006_video_adult.py	/^    dependencies = [$/;"	kind:variable	line:10
 email	../deep_player/forms.py	/^    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')$/;"	kind:variable	line:9
 embed	../video/models.py	/^    embed = models.TextField(max_length=2000, null=True, blank=True, help_text='Enter the ID of Video')$/;"	kind:variable	line:15
 field	../video/migrations/0002_video_thumbnail.py	/^            field=models.TextField(max_length=1000, null=True),$/;"	kind:variable	line:18
 field	../video/migrations/0003_auto_20171019_0953.py	/^            field=models.TextField(blank=True, help_text='Enter the ID of Video', max_length=2000, null=True),$/;"	kind:variable	line:23
 field	../video/migrations/0003_auto_20171019_0953.py	/^            field=models.TextField(max_length=50000, null=True),$/;"	kind:variable	line:18
 field	../video/migrations/0004_auto_20171019_0958.py	/^            field=models.TextField(max_length=500000, null=True),$/;"	kind:variable	line:18
+field	../video/migrations/0005_video_processed.py	/^            field=models.CharField(max_length=3, null=True),$/;"	kind:variable	line:18
+field	../video/migrations/0006_video_adult.py	/^            field=models.CharField(max_length=1, null=True),$/;"	kind:variable	line:18
 fields	../deep_player/forms.py	/^        fields = ('name','url','user')/;"	kind:variable	line:20
 fields	../deep_player/forms.py	/^        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )$/;"	kind:variable	line:13
 fields	../video/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:22
-fileupload	../video/views.py	/^def fileupload(request):$/;"	kind:function	line:69
+fileupload	../video/views.py	/^def fileupload(request):$/;"	kind:function	line:80
 first_name	../deep_player/forms.py	/^    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:7
 forms.py	../deep_player/forms.py	1;"	kind:file	line:1
-get_absolute_url	../video/models.py	/^    def get_absolute_url(self):$/;"	kind:member	line:21
-get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	line:122
+get_absolute_url	../video/models.py	/^    def get_absolute_url(self):$/;"	kind:member	line:25
+get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	line:133
 handle	../video/management/commands/createsu.py	/^    def handle(self, *args, **options):$/;"	kind:member	line:7
 index	../video/views.py	/^def index(request):$/;"	kind:function	line:27
 initial	../video/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
@@ -80,15 +89,17 @@ last_name	../deep_player/forms.py	/^    last_name = forms.CharField(max_length=3
 main.py	../deep_player/main.py	1;"	kind:file	line:1
 manage.py	../manage.py	1;"	kind:file	line:1
 model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
-model	../video/views.py	/^    model = Video$/;"	kind:variable	line:120
-model	../video/views.py	/^    model = Video/;"	kind:variable	line:211
-model	../video/views.py	/^    model=Video$/;"	kind:variable	line:65
+model	../video/views.py	/^    model = Video$/;"	kind:variable	line:131
+model	../video/views.py	/^    model = Video/;"	kind:variable	line:252
+model	../video/views.py	/^    model=Video$/;"	kind:variable	line:76
 model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:21
 model_name	../video/migrations/0004_auto_20171019_0958.py	/^            model_name='video',$/;"	kind:variable	line:16
+model_name	../video/migrations/0005_video_processed.py	/^            model_name='video',$/;"	kind:variable	line:16
+model_name	../video/migrations/0006_video_adult.py	/^            model_name='video',$/;"	kind:variable	line:16
 models.py	../video/models.py	1;"	kind:file	line:1
-my_videos	../video/views.py	/^def my_videos(request):$/;"	kind:function	line:107
+my_videos	../video/views.py	/^def my_videos(request):$/;"	kind:function	line:118
 name	../deep_player/forms.py	/^    name = forms.CharField(max_length=50,help_text="Enter the name of the video")$/;"	kind:variable	line:16
 name	../video/apps.py	/^    name = 'video'$/;"	kind:variable	line:5
 name	../video/migrations/0001_initial.py	/^            name='Video',$/;"	kind:variable	line:21
@@ -96,12 +107,17 @@ name	../video/migrations/0002_video_thumbnail.py	/^            name='thumbnail',
 name	../video/migrations/0003_auto_20171019_0953.py	/^            name='embed',$/;"	kind:variable	line:22
 name	../video/migrations/0003_auto_20171019_0953.py	/^            name='json',$/;"	kind:variable	line:17
 name	../video/migrations/0004_auto_20171019_0958.py	/^            name='json',$/;"	kind:variable	line:17
+name	../video/migrations/0005_video_processed.py	/^            name='processed',$/;"	kind:variable	line:17
+name	../video/migrations/0006_video_adult.py	/^            name='adult',$/;"	kind:variable	line:17
 name	../video/models.py	/^    name=models.TextField(max_length=2000, help_text="Enter video name")$/;"	kind:variable	line:9
 operations	../video/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:19
 operations	../video/migrations/0002_video_thumbnail.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0003_auto_20171019_0953.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0004_auto_20171019_0958.py	/^    operations = [$/;"	kind:variable	line:14
-sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:136
+operations	../video/migrations/0005_video_processed.py	/^    operations = [$/;"	kind:variable	line:14
+operations	../video/migrations/0006_video_adult.py	/^    operations = [$/;"	kind:variable	line:14
+processed	../video/models.py	/^    processed=models.CharField(max_length=3, null=True)$/;"	kind:variable	line:21
+sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:147
 settings.py	../deep_player/settings.py	1;"	kind:file	line:1
 signup	../video/views.py	/^def signup(request):$/;"	kind:function	line:11
 tests.py	../video/tests.py	1;"	kind:file	line:1
@@ -115,4 +131,4 @@ user	../deep_player/forms.py	/^    user = forms.CharField(max_length='5',help_te
 user	../video/models.py	/^    user=models.ForeignKey(User, related_name="videos", on_delete=models.CASCADE, help_text="a")$/;"	kind:variable	line:11
 views.py	../video/views.py	1;"	kind:file	line:1
 wsgi.py	../deep_player/wsgi.py	1;"	kind:file	line:1
-xyz	../video/views.py	/^def xyz(request):$/;"	kind:function	line:113
+xyz	../video/views.py	/^def xyz(request):$/;"	kind:function	line:124

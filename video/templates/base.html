@@ -20,7 +20,7 @@
         }
         
         iframe{
-            width: 100%;
+            width: 49%;
         }
         
     </style>
@@ -65,12 +65,14 @@
     
         </div>
     </nav>
+    {% block container %}
     <div class="uk-container">
         <br>
     {% block content %}
     
     {% endblock content %}
     </div>
+    {% endblock %}
   {% block pagination %}
   {% if is_paginated %}
   {% if page_obj.has_previous or page_obj.has_next %}
