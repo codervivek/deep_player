@@ -56,7 +56,7 @@ def index(request):
                     if (a>0.8):
                         v.adult='a'
                     else:
-                        v.adult=None;
+                        v.adult=None
                     v.save()
                     # print(json_obj["summarizedInsights"]["thumbnailUrl"])
                 else:
