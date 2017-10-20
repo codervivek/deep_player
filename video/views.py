@@ -29,7 +29,7 @@ def index(request):
         max_created=Max("created_date")
     ).order_by("-max_created")
     for vi in video:
-        if not (vi.json):
+        if (vi.json):
             headers = {
                 # Request headers
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
@@ -55,6 +55,8 @@ def index(request):
                     a=json_obj["breakdowns"][0]["insights"]["contentModeration"]["adultClassifierValue"]
                     if (a>0.8):
                         v.adult='a'
+                    else:
+                        v.adult=None;
                     v.save()
                     # print(json_obj["summarizedInsights"]["thumbnailUrl"])
                 else:
