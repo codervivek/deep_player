@@ -17,7 +17,7 @@
     <iframe width="580" height="780" src="https://www.videoindexer.ai/embed/insights/{{video.embed}}" frameborder="0" allowfullscreen></iframe>
   </div>
     <input type="hidden" value="{{time}}" name="time" id="time"/>
-    <h3 class="uk-card-title uk-text-center">{{video.name}} at {{time}}</h3>
+    <h3 class="uk-card-title uk-text-center">{{video.name}}</h3>
   </div>
 {% endblock %}
 {% endblock %}
@@ -33,6 +33,7 @@
         window.onload=xyz;
         var xyz=setTimeout(function(){
           var time = parseFloat(input.value);
+          console.log(time);
           notifyPlayer(time);
         },20000);
         
