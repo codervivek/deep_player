@@ -56,7 +56,8 @@ def index(request):
                     # print(json_obj["summarizedInsights"]["thumbnailUrl"])
                 else:
                     v=Video.objects.get(id=vi.id)
-                    v.processed=json_obj["breakdowns"]["processingProgress"]
+                    print(json_obj)
+                    v.processed=json_obj["breakdowns"][0]["processingProgress"]
                     v.save()
                 conn.close()
             except Exception as e:
