@@ -29,7 +29,7 @@ Migration	../video/migrations/0004_auto_20171019_0958.py	/^class Migration(migra
 ROOT_URLCONF	../deep_player/settings.py	/^ROOT_URLCONF = 'deep_player.urls'$/;"	kind:variable	line:53
 STATIC_ROOT	../deep_player/settings.py	/^STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")$/;"	kind:variable	line:144
 STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:145
-SearchListView	../video/views.py	/^class SearchListView(ListView):$/;"	kind:class	line:120
+SearchListView	../video/views.py	/^class SearchListView(ListView):$/;"	kind:class	line:119
 SignUpForm	../deep_player/forms.py	/^class SignUpForm(UserCreationForm):$/;"	kind:class	line:6
 TEMPLATES	../deep_player/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
 TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:132
@@ -39,8 +39,8 @@ USE_TZ	../deep_player/settings.py	/^USE_TZ = True$/;"	kind:variable	line:138
 UploadForm	../deep_player/forms.py	/^class UploadForm(forms.Form):$/;"	kind:class	line:15
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
-VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:65
-VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:172
+VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:64
+VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:173
 WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
 __init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/__init__.py	1;"	kind:file	line:1
@@ -67,11 +67,11 @@ field	../video/migrations/0004_auto_20171019_0958.py	/^            field=models.
 fields	../deep_player/forms.py	/^        fields = ('name','url','user')/;"	kind:variable	line:20
 fields	../deep_player/forms.py	/^        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )$/;"	kind:variable	line:13
 fields	../video/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:22
-fileupload	../video/views.py	/^def fileupload(request):$/;"	kind:function	line:70
+fileupload	../video/views.py	/^def fileupload(request):$/;"	kind:function	line:69
 first_name	../deep_player/forms.py	/^    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:7
 forms.py	../deep_player/forms.py	1;"	kind:file	line:1
 get_absolute_url	../video/models.py	/^    def get_absolute_url(self):$/;"	kind:member	line:21
-get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	line:123
+get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	line:122
 handle	../video/management/commands/createsu.py	/^    def handle(self, *args, **options):$/;"	kind:member	line:7
 index	../video/views.py	/^def index(request):$/;"	kind:function	line:27
 initial	../video/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
@@ -80,15 +80,15 @@ last_name	../deep_player/forms.py	/^    last_name = forms.CharField(max_length=3
 main.py	../deep_player/main.py	1;"	kind:file	line:1
 manage.py	../manage.py	1;"	kind:file	line:1
 model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
-model	../video/views.py	/^    model = Video$/;"	kind:variable	line:121
-model	../video/views.py	/^    model = Video/;"	kind:variable	line:173
-model	../video/views.py	/^    model=Video$/;"	kind:variable	line:66
+model	../video/views.py	/^    model = Video$/;"	kind:variable	line:120
+model	../video/views.py	/^    model = Video/;"	kind:variable	line:174
+model	../video/views.py	/^    model=Video$/;"	kind:variable	line:65
 model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:21
 model_name	../video/migrations/0004_auto_20171019_0958.py	/^            model_name='video',$/;"	kind:variable	line:16
 models.py	../video/models.py	1;"	kind:file	line:1
-my_videos	../video/views.py	/^def my_videos(request):$/;"	kind:function	line:108
+my_videos	../video/views.py	/^def my_videos(request):$/;"	kind:function	line:107
 name	../deep_player/forms.py	/^    name = forms.CharField(max_length=50,help_text="Enter the name of the video")$/;"	kind:variable	line:16
 name	../video/apps.py	/^    name = 'video'$/;"	kind:variable	line:5
 name	../video/migrations/0001_initial.py	/^            name='Video',$/;"	kind:variable	line:21
@@ -101,7 +101,7 @@ operations	../video/migrations/0001_initial.py	/^    operations = [$/;"	kind:var
 operations	../video/migrations/0002_video_thumbnail.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0003_auto_20171019_0953.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0004_auto_20171019_0958.py	/^    operations = [$/;"	kind:variable	line:14
-sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:134
+sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:133
 settings.py	../deep_player/settings.py	1;"	kind:file	line:1
 signup	../video/views.py	/^def signup(request):$/;"	kind:function	line:11
 tests.py	../video/tests.py	1;"	kind:file	line:1
@@ -115,4 +115,4 @@ user	../deep_player/forms.py	/^    user = forms.CharField(max_length='5',help_te
 user	../video/models.py	/^    user=models.ForeignKey(User, related_name="videos", on_delete=models.CASCADE, help_text="a")$/;"	kind:variable	line:11
 views.py	../video/views.py	1;"	kind:file	line:1
 wsgi.py	../deep_player/wsgi.py	1;"	kind:file	line:1
-xyz	../video/views.py	/^def xyz(request):$/;"	kind:function	line:114
+xyz	../video/views.py	/^def xyz(request):$/;"	kind:function	line:113

@@ -25,7 +25,6 @@ def signup(request):
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
-
     video = Video.objects.annotate(
         max_created=Max("created_date")
     ).order_by("-max_created")
@@ -46,7 +45,7 @@ def index(request):
                 conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/{id}?%s" % params, "", headers)
                 response = conn.getresponse()
                 string = response.read().decode('utf-8')
-                # json_obj = json.loads(string)
+                json_obj = json.loads(string)
                 print(json_obj)
                 if(json_obj["state"]=="Processed"):
                     v=Video.objects.get(id=vi.id)
@@ -131,6 +130,8 @@ class SearchListView(ListView):
 
         return qs
 
+import json
+from django.http import HttpResponse
 def sceneSearch(request):
     qs = Video.objects.all()
     movie = request.GET.get('movie')
@@ -158,16 +159,44 @@ def sceneSearch(request):
         try:
             conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
             conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
+            print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
             response = conn.getresponse()
             string = response.read().decode('utf-8')
+            json_obj=json.loads(string)
+            if(json_obj["results"][0]):
+                string=json_obj["results"][0]["searchMatches"][0]["startTime"]
             print(string)
             conn.close()
         except Exception as e:
             print("[Errno {0}] {1}".format(e.errno, e.strerror))
         # return render(request, 'video/video_detail.html', {'video': video})
-    else:
-        m = qs
-    return render(request, 'json.html', {'xyz':string})
+        return render(request, 'scene.html', {'time':string,'video':m[0]})
+        # return HttpResponse(json.dumps(json_obj), content_type="application/json")
+        
+    # else:
+    #     m = qs
+    #     headers = {
+    #         # Request headers
+    #         'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+    #     }
+
+    #     params = urllib.parse.urlencode({
+    #         # Request parameters
+    #         'id': m[0].embed,
+    #         'query': q,
+    #         'pageSize': '1',
+    #     })
+
+    #     try:
+    #         conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+    #         conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
+    #         print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
+    #         response = conn.getresponse()
+    #         string = response.read().decode('utf-8')
+    #         print(string)
+    #         conn.close()
+    #     except Exception as e:
+    #         print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
 
 class VideoListView(ListView):

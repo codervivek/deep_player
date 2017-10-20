@@ -9,15 +9,44 @@
 {% block content %}
 <div class="uk-card uk-card-default uk-card-large uk-card-body">
         <div class="uk-card-media-top">
-                <iframe src="https://www.videoindexer.ai/embed/player/{{video.embed}}" id="myIframe" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.videoindexer.ai/embed/player/{{video.embed}}" id="viPlayer" frameborder="0" allowfullscreen></iframe>
             </div>
     <h3 class="uk-card-title uk-text-center">{{video.name}}</h3>
+
+<input type="hidden" value="{{time}}" name="time" id="time"/>
     <iframe width="580" height="780" src="https://www.videoindexer.ai/embed/insights/{{video.embed}}" frameborder="0" allowfullscreen></iframe>
 </div>
 {% endblock %}
 {% block extra_js %}
 <script type="text/javascript" language="javascript"> 
-  $('#myIframe').css('height', $(window).height()*.7*.75+'px');
+  $('#viPlayer').css('height', $(window).height()*.7*.75+'px');
   </script>
   <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
 {% endblock extra_js %}  
+
+
+
+<script type="text/javascript" language="javascript">
+    window.onload = abc;
+    function abc(){
+        console.log("abc");
+        var viPlayerIframe = document.getElementById("viPlayer");
+        var input = document.getElementById("time");
+        button.addEventListener("click", function(){
+            var time = parseFloat(input.value);
+            notifyPlayer(time);
+        });
+        
+        
+        function notifyPlayer(time){
+            // Pass message to other iframe.
+            if ('postMessage' in window) {
+            try {
+                viPlayerIframe.contentWindow.postMessage({time: time, origin: "https://www.videoindexer.ai"}, "https://www.videoindexer.ai");
+            } catch (error) {
+                throw error;
+            }
+            }
+        }
+    }
+    </script>

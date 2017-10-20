@@ -44,7 +44,15 @@
             {% endif %}
         </div>
         <div class="uk-navbar-right">
-                {% if not user.is_authenticated %}
+                {% block search %}
+                <form id="searchform" action="{% url 'search_list_view' %}" method="get" accept-charset="utf-8">
+                        <input class="uk-input uk-form-width-large" type="text" placeholder="Search" aria-label="Search" name="q" id="searchbox">
+                        <button class="uk-button uk-button-primary" type="submit">Search</button>
+                      </form>    
+                {% endblock %}
+                    </div>
+            <div class="uk-navbar-right">
+                      {% if not user.is_authenticated %}
                 <a href="{% url 'login'%}?next={{request.path}}" class="uk-button uk-button-default">Login</a>
                 <a href="{% url 'signup'%}" class="uk-button uk-button-default">Signup</a>
                 {% endif %}
@@ -53,14 +61,12 @@
                 <a href="{% url 'upload'%}" class="uk-button uk-button-default">Upload</a>
                 <a href="{% url 'logout'%}?next={{request.path}}" class="uk-button uk-button-default">Logout</a>
                 {% endif %}
-                <form id="searchform" action="{% url 'search_list_view' %}" method="get" accept-charset="utf-8">
-                  <input class="uk-input uk-form-width-small" type="text" placeholder="Search" aria-label="Search" name="q" id="searchbox">
-                  <button class="uk-button uk-button-primary" type="submit">Search</button>
-                </form>
+                
     
         </div>
     </nav>
     <div class="uk-container">
+        <br>
     {% block content %}
     
     {% endblock content %}
