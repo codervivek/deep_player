@@ -18,6 +18,8 @@ class Video(models.Model):
 
     json = models.TextField(max_length=500000, null=True)
 
+    processed=models.CharField(max_length=3, null=True)
+
     def get_absolute_url(self):
         return reverse('video-detail', args=[str(self.id)])
 

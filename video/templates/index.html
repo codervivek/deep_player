@@ -25,6 +25,9 @@
                         {% else %}
                         <div class="uk-card-footer uk-text-muted uk-text-small">{{ video.user.username }} uploaded at {{ video.created_date}}</div>
                         {% endif %}
+                        {% if video.processed %}
+                        <p>{{video.processed}} processed</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

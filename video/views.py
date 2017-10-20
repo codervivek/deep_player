@@ -51,8 +51,13 @@ def index(request):
                     v=Video.objects.get(id=vi.id)
                     v.json=string
                     v.thumbnail=json_obj["summarizedInsights"]["thumbnailUrl"]
+                    v.processed=None
                     v.save()
                     # print(json_obj["summarizedInsights"]["thumbnailUrl"])
+                else:
+                    v=Video.objects.get(id=vi.id)
+                    v.processed=json_obj["processingProgress"]
+                    v.save()
                 conn.close()
             except Exception as e:
                 print("[Errno {0}] {1}".format(e.errno, e.strerror))
