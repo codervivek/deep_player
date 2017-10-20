@@ -29,7 +29,7 @@ def index(request):
         max_created=Max("created_date")
     ).order_by("-max_created")
     for vi in video:
-        if not (vi.adult):
+        if (vi.adult):
             headers = {
                 # Request headers
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
@@ -55,8 +55,6 @@ def index(request):
                     a=json_obj["breakdowns"][0]["insights"]["contentModeration"]["adultClassifierValue"]
                     if (a>0.8):
                         v.adult='a'
-                    else:
-                        v.adult='u'
                     v.save()
                     # print(json_obj["summarizedInsights"]["thumbnailUrl"])
                 else:
@@ -78,6 +76,8 @@ class VideoDetailView(generic.DetailView):
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 import json
 def fileupload(request):
+    # a=Video.objects.create(name="GOT",embed="60bbdcb789",user=request.user)
+    # a.save()
     if request.method == 'POST':
         form = UploadForm(request.POST)
         if form.is_valid():

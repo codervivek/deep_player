@@ -17,17 +17,6 @@
         </div>
     <h3 class="uk-card-title uk-text-center">{{video.name}}</h3>
 </div>
-<a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Open</a>
-
-<div id="modal-center" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-    </div>
-</div>
 {% endblock %}
 </div>
 {% endblock %}
@@ -38,9 +27,9 @@
   
  
 </script>
-{% if video.adult is 'a' %}
+{% if video.adult %}
 <script type="text/javascript" language="javascript">
-  UIkit.modal.alert('Adult Content!')
+  UIkit.modal.alert('Caution, Adult Content!')
   </script>
   {% endif %}
   <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
