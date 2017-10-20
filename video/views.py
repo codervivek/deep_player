@@ -144,6 +144,9 @@ def sceneSearch(request):
         qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
         m = qs[:1]
         q = request.GET.get('q')
+        if not q:
+            return render(request, 'scene.html', {'video':m[0]})
+        print(m[0].name)
         headers = {
             # Request headers
             'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
@@ -163,15 +166,15 @@ def sceneSearch(request):
             response = conn.getresponse()
             string = response.read().decode('utf-8')
             json_obj=json.loads(string)
-            if(json_obj["results"][0]):
-                string=json_obj["results"][0]["searchMatches"][0]["startTime"]
+            # if(json_obj["results"][0]):
+            #     string=json_obj["results"][0]["searchMatches"][0]["startTime"]
             print(string)
             conn.close()
         except Exception as e:
             print("[Errno {0}] {1}".format(e.errno, e.strerror))
         # return render(request, 'video/video_detail.html', {'video': video})
         return render(request, 'scene.html', {'time':string,'video':m[0]})
-        # return HttpResponse(json.dumps(json_obj), content_type="application/json")
+        return HttpResponse(json.dumps(json_obj), content_type="application/json")
         
     # else:
     #     m = qs
