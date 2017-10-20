@@ -212,6 +212,7 @@ def sceneSearch(request):
         response = conn.getresponse()
         string = response.read().decode('utf-8')
         json_obj=json.loads(string)
+        print(json_obj)
         if (len(json_obj["results"])==1):
             if(json_obj["results"][0]):
                 string=json_obj["results"][0]["searchMatches"][0]["startTime"]
