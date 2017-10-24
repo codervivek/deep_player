@@ -45,6 +45,8 @@ Configure your Database settings in settings.py to run the database. Assign DEBU
 Finally run
 
 ```
+python3 manage.py makemigrations
+python3 manage.py migrate
 python3 manage.py runserver
 ```
 
