@@ -4,8 +4,8 @@ An online video streaming service which automatically extracts insights like act
 
 ## Screenshots
 
-[Screenshot 1](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(1).png "Home Page")
-[Screenshot 2](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(2).png "Video Page")
+![Screenshot 1](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(1).png "Home Page")
+![Screenshot 2](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(2).png "Video Page")
 
 ## Getting Started
 
