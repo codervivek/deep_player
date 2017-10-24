@@ -7,6 +7,10 @@ An online video streaming service which automatically extracts insights like act
 ![Screenshot 1](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(1).png "Home Page")
 ![Screenshot 2](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(2).png "Video Page")
 
+## Videos
+
+[Youtube link](https://youtu.be/YiXngGW_TPM)
+
 ## Getting Started
 
 Clone or fork the repo to make changes and test the site.
