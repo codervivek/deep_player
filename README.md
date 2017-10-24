@@ -2,6 +2,11 @@
 
 An online video streaming service which automatically extracts insights like actors, scenes, keywords and multilingual subtitles using Microsoft's Video Indexer API.
 
+## Screenshots
+
+[Screenshot 1](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(1).png "Home Page")
+[Screenshot 2](https://github.com/codervivek/deep_player/blob/master/.vscode/Screenshot%20(2).png "Video Page")
+
 ## Getting Started
 
 Clone or fork the repo to make changes and test the site.
