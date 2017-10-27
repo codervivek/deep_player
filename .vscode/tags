@@ -16,7 +16,7 @@ BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname
 Command	../video/management/commands/createsu.py	/^class Command(BaseCommand):$/;"	kind:class	line:5
 DATABASES	../deep_player/settings.py	/^    DATABASES = {$/;"	kind:variable	line:78
 DATABASES	../deep_player/settings.py	/^    DATABASES = {$/;"	kind:variable	line:89
-DEBUG	../deep_player/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+DEBUG	../deep_player/settings.py	/^DEBUG = False$/;"	kind:variable	line:26
 INSTALLED_APPS	../deep_player/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
 LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:130
 MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:146
@@ -33,7 +33,7 @@ Migration	../video/migrations/0006_video_adult.py	/^class Migration(migrations.M
 ROOT_URLCONF	../deep_player/settings.py	/^ROOT_URLCONF = 'deep_player.urls'$/;"	kind:variable	line:53
 STATIC_ROOT	../deep_player/settings.py	/^STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")$/;"	kind:variable	line:144
 STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:145
-SearchListView	../video/views.py	/^class SearchListView(ListView):$/;"	kind:class	line:130
+SearchListView	../video/views.py	/^class SearchListView(ListView):$/;"	kind:class	line:132
 SignUpForm	../deep_player/forms.py	/^class SignUpForm(UserCreationForm):$/;"	kind:class	line:6
 TEMPLATES	../deep_player/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
 TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:132
@@ -44,7 +44,7 @@ UploadForm	../deep_player/forms.py	/^class UploadForm(forms.Form):$/;"	kind:clas
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
 VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:75
-VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:251
+VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:253
 WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
 __init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/__init__.py	1;"	kind:file	line:1
@@ -80,7 +80,7 @@ fileupload	../video/views.py	/^def fileupload(request):$/;"	kind:function	line:8
 first_name	../deep_player/forms.py	/^    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:7
 forms.py	../deep_player/forms.py	1;"	kind:file	line:1
 get_absolute_url	../video/models.py	/^    def get_absolute_url(self):$/;"	kind:member	line:25
-get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	line:133
+get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	line:135
 handle	../video/management/commands/createsu.py	/^    def handle(self, *args, **options):$/;"	kind:member	line:7
 index	../video/views.py	/^def index(request):$/;"	kind:function	line:27
 initial	../video/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
@@ -89,8 +89,8 @@ last_name	../deep_player/forms.py	/^    last_name = forms.CharField(max_length=3
 main.py	../deep_player/main.py	1;"	kind:file	line:1
 manage.py	../manage.py	1;"	kind:file	line:1
 model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
-model	../video/views.py	/^    model = Video$/;"	kind:variable	line:131
-model	../video/views.py	/^    model = Video/;"	kind:variable	line:252
+model	../video/views.py	/^    model = Video$/;"	kind:variable	line:133
+model	../video/views.py	/^    model = Video/;"	kind:variable	line:254
 model	../video/views.py	/^    model=Video$/;"	kind:variable	line:76
 model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:16
@@ -99,7 +99,7 @@ model_name	../video/migrations/0004_auto_20171019_0958.py	/^            model_na
 model_name	../video/migrations/0005_video_processed.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0006_video_adult.py	/^            model_name='video',$/;"	kind:variable	line:16
 models.py	../video/models.py	1;"	kind:file	line:1
-my_videos	../video/views.py	/^def my_videos(request):$/;"	kind:function	line:118
+my_videos	../video/views.py	/^def my_videos(request):$/;"	kind:function	line:120
 name	../deep_player/forms.py	/^    name = forms.CharField(max_length=50,help_text="Enter the name of the video")$/;"	kind:variable	line:16
 name	../video/apps.py	/^    name = 'video'$/;"	kind:variable	line:5
 name	../video/migrations/0001_initial.py	/^            name='Video',$/;"	kind:variable	line:21
@@ -117,7 +117,7 @@ operations	../video/migrations/0004_auto_20171019_0958.py	/^    operations = [$/
 operations	../video/migrations/0005_video_processed.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0006_video_adult.py	/^    operations = [$/;"	kind:variable	line:14
 processed	../video/models.py	/^    processed=models.CharField(max_length=3, null=True)$/;"	kind:variable	line:21
-sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:147
+sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:149
 settings.py	../deep_player/settings.py	1;"	kind:file	line:1
 signup	../video/views.py	/^def signup(request):$/;"	kind:function	line:11
 tests.py	../video/tests.py	1;"	kind:file	line:1
@@ -131,4 +131,4 @@ user	../deep_player/forms.py	/^    user = forms.CharField(max_length='5',help_te
 user	../video/models.py	/^    user=models.ForeignKey(User, related_name="videos", on_delete=models.CASCADE, help_text="a")$/;"	kind:variable	line:11
 views.py	../video/views.py	1;"	kind:file	line:1
 wsgi.py	../deep_player/wsgi.py	1;"	kind:file	line:1
-xyz	../video/views.py	/^def xyz(request):$/;"	kind:function	line:124
+xyz	../video/views.py	/^def xyz(request):$/;"	kind:function	line:126
