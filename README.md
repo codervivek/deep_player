@@ -76,7 +76,7 @@ TODO
 
 * **Vivek Raj**  - [Deep Player](https://github.com/codervivek/deep_player)
 * **Ekagra Ranjan**
-* **[Pawan Kumar](https://github.com/pavan71198)**
+* **[Pavan Kumar](https://github.com/pavan71198)**
 
 ## License
 
