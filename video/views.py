@@ -253,6 +253,8 @@ def sceneSearch(request):
     else:
         movie=request.GET.get('movie')
         qs = Video.objects.all()
+        face=request.GET.get('face')
+        print(face)
         if movie:
             query = SearchQuery(movie)
             vector=SearchVector('name')
@@ -268,10 +270,20 @@ def sceneSearch(request):
                 for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
                     # print(line["lines"])
                     text=line["lines"][0]["text"]
-                    print(text)
-                    print(transript)
                     counter = len([x for x in text.split() if x == transript])
                     if counter>0:
+                        print("xyz")
+                        if face:
+                            print(face)
+                            for person in json_obj["breakdowns"][0]["insights"]["faces"]:
+                                print(person["name"])
+                                if len([x for x in person["name"].split() if x == face]):
+                                    timestr = line["lines"][0]["timeRange"]["start"]
+                                    timestr = timestr.split('.')[0]
+                                    ftr = [3600,60,1]
+                                    string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                    return render(request, 'scene.html', {'time':string,'video':m})
+                            return render(request,'video/video_list.html',{'video_list':Video.objects.all})
                         timestr = line["lines"][0]["timeRange"]["start"]
                         timestr = timestr.split('.')[0]
                         ftr = [3600,60,1]
@@ -285,13 +297,24 @@ def sceneSearch(request):
             for m in qs:
                 print(m)
                 string = m.json
-                # print(string)
                 json_obj=json.loads(string)
                 for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
                     # print(line["lines"])
                     text=line["lines"][0]["text"]
                     counter = len([x for x in text.split() if x == transript])
                     if counter>0:
+                        print("xyz")
+                        if face:
+                            print(face)
+                            for person in json_obj["breakdowns"][0]["insights"]["faces"]:
+                                print(person["name"])
+                                if len([x for x in person["name"].split() if x == face]):
+                                    timestr = line["lines"][0]["timeRange"]["start"]
+                                    timestr = timestr.split('.')[0]
+                                    ftr = [3600,60,1]
+                                    string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                    return render(request, 'scene.html', {'time':string,'video':m})
+                            return render(request,'video/video_list.html',{'video_list':Video.objects.all})
                         timestr = line["lines"][0]["timeRange"]["start"]
                         timestr = timestr.split('.')[0]
                         ftr = [3600,60,1]
