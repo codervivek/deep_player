@@ -297,8 +297,6 @@ def sceneSearch(request):
                         ftr = [3600,60,1]
                         string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
                         return render(request, 'scene.html', {'time':string,'video':m})
-                else:
-                    return render(request, 'video/video_detail.html',{'video':m})
             else:
                 return render(request, 'video/video_list.html',{'video_list':m})
 
