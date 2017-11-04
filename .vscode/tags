@@ -46,7 +46,7 @@ UploadForm	../deep_player/forms.py	/^class UploadForm(forms.Form):$/;"	kind:clas
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
 VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:75
-VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:328
+VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:329
 WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
 __init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/__init__.py	1;"	kind:file	line:1
@@ -90,6 +90,7 @@ get_absolute_url	../video/models.py	/^    def get_absolute_url(self):$/;"	kind:m
 get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	line:135
 handle	../video/management/commands/createsu.py	/^    def handle(self, *args, **options):$/;"	kind:member	line:7
 index	../video/views.py	/^def index(request):$/;"	kind:function	line:27
+info	../video/views.py	/^def info(request,pk,time):$/;"	kind:function	line:332
 initial	../video/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
 json	../video/models.py	/^    json = models.TextField(max_length=5000000, null=True, blank=True)$/;"	kind:variable	line:19
 last_name	../deep_player/forms.py	/^    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:8
@@ -97,7 +98,7 @@ main.py	../deep_player/main.py	1;"	kind:file	line:1
 manage.py	../manage.py	1;"	kind:file	line:1
 model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
 model	../video/views.py	/^    model = Video$/;"	kind:variable	line:133
-model	../video/views.py	/^    model = Video/;"	kind:variable	line:329
+model	../video/views.py	/^    model = Video$/;"	kind:variable	line:330
 model	../video/views.py	/^    model=Video$/;"	kind:variable	line:76
 model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:16
@@ -133,7 +134,7 @@ operations	../video/migrations/0005_video_processed.py	/^    operations = [$/;"	
 operations	../video/migrations/0006_video_adult.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0007_auto_20171103_2241.py	/^    operations = [$/;"	kind:variable	line:14
 processed	../video/models.py	/^    processed=models.CharField(max_length=3, null=True, blank=True)$/;"	kind:variable	line:21
-sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:149
+sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:150
 settings.py	../deep_player/settings.py	1;"	kind:file	line:1
 signup	../video/views.py	/^def signup(request):$/;"	kind:function	line:11
 tests.py	../video/tests.py	1;"	kind:file	line:1
