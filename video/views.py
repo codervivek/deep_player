@@ -321,7 +321,7 @@ def sceneSearch(request):
                         string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
                         return render(request, 'scene.html', {'time':string,'video':m})
             else:
-                return render(request, 'video/video_list.html',{'video_list':m})
+                return render(request, 'video/video_list.html',{'video_list':Video.objects.all})
 
 
 

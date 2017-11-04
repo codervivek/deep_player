@@ -47,6 +47,12 @@ $('#myIframe').css('height', $(window).height()*.7*.75+'px');
     document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
   });
   </script>
-  {% endif %}
-  <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
+  {% else %}
+  <script type="text/javascript" language="javascript">
+    document.getElementById("moderation-modal").click();
+    window.addEventListener("onload", function(){
+      document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
+    });
+    </script>
+    {% endif %}
 {% endblock extra_js %}  
