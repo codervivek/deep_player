@@ -14,7 +14,11 @@
 <button id="actors" class="uk-button uk-button-large">Show Insights</button></div>
 <div class="uk-card uk-card-default uk-card-large uk-card-body">
         <div class="uk-card-media-top">
+            {% if video.adult %}
           <iframe src="https://www.videoindexer.ai/embed/player/xyz" id="myIframe" frameborder="0" allowfullscreen></iframe>
+          {% else %}
+          <iframe src="https://www.videoindexer.ai/embed/player/{{video.embed}}" id="myIframe" frameborder="0" allowfullscreen></iframe>
+          {% endif %}
               <iframe width="580" height="780" src="https://www.videoindexer.ai/embed/insights/{{video.embed}}/" frameborder="0" allowfullscreen></iframe>
         </div>
     <h3 class="uk-card-title uk-text-center">{{video.name}}</h3>
@@ -47,11 +51,5 @@ $('#myIframe').css('height', $(window).height()*.7*.75+'px');
     document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
   });
   </script>
-  {% else %}
-  <script type="text/javascript" language="javascript">
-    $(window).load(function(){
-      document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
-    });
-    </script>
   {% endif %}
 {% endblock extra_js %}  
