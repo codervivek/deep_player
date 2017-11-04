@@ -26,12 +26,12 @@
 {% endblock %}
 {% block extra_js %}
 <script type="text/javascript" language="javascript"> 
-  $('#viPlayer').css('height', $(window).height()*.7*.75+'px');
+  $('#myIframe').css('height', $(window).height()*.7*.75+'px');
   </script>
   <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
     <script>
     (function(){
-        var viPlayerIframe = document.getElementById("viPlayer");
+        var viPlayerIframe = document.getElementById("myIframe");
         var input = document.getElementById("time");
         window.onload=xyz;
         var xyz=setTimeout(function(){
