@@ -46,7 +46,7 @@ UploadForm	../deep_player/forms.py	/^class UploadForm(forms.Form):$/;"	kind:clas
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
 VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:75
-VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:305
+VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:328
 WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
 __init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/__init__.py	1;"	kind:file	line:1
@@ -97,7 +97,7 @@ main.py	../deep_player/main.py	1;"	kind:file	line:1
 manage.py	../manage.py	1;"	kind:file	line:1
 model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
 model	../video/views.py	/^    model = Video$/;"	kind:variable	line:133
-model	../video/views.py	/^    model = Video/;"	kind:variable	line:306
+model	../video/views.py	/^    model = Video/;"	kind:variable	line:329
 model	../video/views.py	/^    model=Video$/;"	kind:variable	line:76
 model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:16
