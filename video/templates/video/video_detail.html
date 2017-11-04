@@ -43,16 +43,15 @@ $('#myIframe').css('height', $(window).height()*.7*.75+'px');
 {% if video.adult %}
 <script type="text/javascript" language="javascript">
   document.getElementById("moderation-modal").click();
-  $(window).load(function(){
+  document.getElementById("continue").addEventListener("click", function(){
     document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
   });
   </script>
   {% else %}
   <script type="text/javascript" language="javascript">
-    document.getElementById("moderation-modal").click();
-    window.addEventListener("onload", function(){
+    $(window).load(function(){
       document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
     });
     </script>
-    {% endif %}
+  {% endif %}
 {% endblock extra_js %}  

@@ -61,8 +61,7 @@
       </script>
       {% else %}
       <script type="text/javascript" language="javascript">
-        document.getElementById("moderation-modal").click();
-        window.addEventListener("onload", function(){
+        $(window).load(function(){
           document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
         });
         </script>
