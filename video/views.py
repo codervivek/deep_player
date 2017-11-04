@@ -293,7 +293,7 @@ def sceneSearch(request):
                 else:
                     return render(request, 'video/video_detail.html',{'video':m})
             else:
-                return render(request, 'video/video_list.html',{'video_list':m})
+                return render(request, 'video/video_detail.html',{'video':m})
         else:
             for m in qs:
                 print(m)
