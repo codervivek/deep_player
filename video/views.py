@@ -270,25 +270,26 @@ def sceneSearch(request):
                 json_obj=json.loads(string)
                 for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
                     # print(line["lines"])
-                    text=line["lines"][0]["text"]
-                    if transript.lower() in text.lower():
-                        print("xyz")
-                        if face:
-                            print(face)
-                            for person in json_obj["breakdowns"][0]["insights"]["faces"]:
-                                print(person["name"])
-                                if person["name"].lower() in face.lower():
-                                    timestr = line["lines"][0]["timeRange"]["start"]
-                                    timestr = timestr.split('.')[0]
-                                    ftr = [3600,60,1]
-                                    string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
-                                    return render(request, 'scene.html', {'time':string,'video':m})
-                            return render(request,'video/video_list.html',{'video_list':Video.objects.all})
-                        timestr = line["lines"][0]["timeRange"]["start"]
-                        timestr = timestr.split('.')[0]
-                        ftr = [3600,60,1]
-                        string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
-                        return render(request, 'scene.html', {'time':string,'video':m})
+                    for z in line["lines"]:
+                        text=z["text"]
+                        if transript.lower() in text.lower():
+                            print("xyz")
+                            if face:
+                                print(face)
+                                for person in json_obj["breakdowns"][0]["insights"]["faces"]:
+                                    print(person["name"])
+                                    if person["name"].lower() in face.lower():
+                                        timestr = line["lines"][0]["timeRange"]["start"]
+                                        timestr = timestr.split('.')[0]
+                                        ftr = [3600,60,1]
+                                        string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                        return render(request, 'scene.html', {'time':string,'video':m})
+                                return render(request,'video/video_list.html',{'video_list':Video.objects.all})
+                            timestr = line["lines"][0]["timeRange"]["start"]
+                            timestr = timestr.split('.')[0]
+                            ftr = [3600,60,1]
+                            string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                            return render(request, 'scene.html', {'time':string,'video':m})
                 else:
                     return render(request, 'video/video_detail.html',{'video':m})
             else:

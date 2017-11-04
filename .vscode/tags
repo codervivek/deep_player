@@ -17,7 +17,7 @@ BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname
 Command	../video/management/commands/createsu.py	/^class Command(BaseCommand):$/;"	kind:class	line:5
 DATABASES	../deep_player/settings.py	/^    DATABASES = {$/;"	kind:variable	line:78
 DATABASES	../deep_player/settings.py	/^    DATABASES = {$/;"	kind:variable	line:89
-DEBUG	../deep_player/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+DEBUG	../deep_player/settings.py	/^DEBUG = False$/;"	kind:variable	line:26
 INSTALLED_APPS	../deep_player/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
 LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:131
 MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:147
