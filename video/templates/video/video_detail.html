@@ -19,7 +19,7 @@
         </div>
     <h3 class="uk-card-title uk-text-center">{{video.name}}</h3>
 </div>
-<button class="uk-button uk-button-default" href="#modal-center" type="hidden" id="moderation-modal"  uk-toggle>Open</button>
+<button class="uk-button uk-button-default" href="#modal-center" type="hidden" id="moderation-modal"  uk-toggle></button>
 
 <div id="modal-center" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
@@ -43,7 +43,7 @@ $('#myIframe').css('height', $(window).height()*.7*.75+'px');
 {% if video.adult %}
 <script type="text/javascript" language="javascript">
   document.getElementById("moderation-modal").click();
-  document.getElementById("continue").addEventListener("click", function(){
+  $(window).load(function(){
     document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
   });
   </script>

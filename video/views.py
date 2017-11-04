@@ -327,3 +327,16 @@ def sceneSearch(request):
 
 class VideoListView(ListView):
     model = Video
+
+def info(request,pk,time):
+    video=Video.objects.get(id=pk)
+    json_obj=video.json
+    json_final=json.loads(json_obj)
+    actor=[]
+    for person in json_final["summarizedInsights"]["faces"]:
+        for appearance in person["appearances"]:
+            if int(appearance["startSeconds"])+1 <= int(time) and int(appearance["endSeconds"])-1 >= int(time):
+                 print("xyz")
+                 actor.append(person)
+                 break
+    return render(request, 'info.html',{'person_list':actor})

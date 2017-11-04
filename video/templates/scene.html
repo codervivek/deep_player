@@ -12,7 +12,7 @@
 {% block content %}
 <div class="uk-card uk-card-default uk-card-large uk-card-body">
         <div class="uk-card-media-top">
-                <iframe src="https://www.videoindexer.ai/embed/player/{{video.embed}}" id="viPlayer" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.videoindexer.ai/embed/player/xyz" id="viPlayer" frameborder="0" allowfullscreen></iframe>
             
     <iframe width="580" height="780" src="https://www.videoindexer.ai/embed/insights/{{video.embed}}" frameborder="0" allowfullscreen></iframe>
   </div>
@@ -54,7 +54,17 @@
     </script>
     {% if video.adult %}
     <script type="text/javascript" language="javascript">
-      var modal=UIkit.modal.alert('Adult Content!')
+      document.getElementById("moderation-modal").click();
+      document.getElementById("continue").addEventListener("click", function(){
+        document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
+      });
       </script>
+      {% else %}
+      <script type="text/javascript" language="javascript">
+        document.getElementById("moderation-modal").click();
+        window.addEventListener("onload", function(){
+          document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
+        });
+        </script>
       {% endif %}
 {% endblock extra_js %}  
