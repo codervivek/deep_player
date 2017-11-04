@@ -2,7 +2,7 @@
 
 {% block title %}{{ video.name }}{% endblock %}
 {% block search %}<form id="searchform" action="{% url 'sceneSearch' %}" method="get" accept-charset="utf-8">
-                <input class="uk-input uk-form-width-large" type="text" placeholder="Search in {{video.name}}" aria-label="Search" name="q" id="searchbox">
+                <input class="uk-input uk-form-width-large" type="text" placeholder="Search in {{video.name}}" aria-label="Search" name="transcript" id="searchbox">
                 <input class="uk-input uk-form-width-large" type="hidden" placeholder="Search" name="movie" value="{{video.name}}">
                 <button class="uk-button uk-button-primary" type="submit">Search</button>
               </form> {% endblock %}
