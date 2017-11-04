@@ -62,5 +62,11 @@
         document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
       });
       </script>
+      {% else %}
+      <script type="text/javascript" language="javascript">
+        $(window).load(function(){
+          document.getElementById("myIframe").src="https://www.videoindexer.ai/embed/player/{{video.embed}}";
+        });
+        </script>
       {% endif %}
 {% endblock extra_js %}  
