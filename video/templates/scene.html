@@ -22,6 +22,20 @@
     <input type="hidden" value="{{time}}" name="time" id="time"/>
     <h3 class="uk-card-title uk-text-center">{{video.name}} at {{time}}</h3>
   </div>
+  <button class="uk-button uk-button-default" href="#modal-center" type="hidden" id="moderation-modal"  uk-toggle></button>
+  
+  <div id="modal-center" class="uk-flex-top" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+  
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+  
+          <p>Caution, Adult Content!</p>
+          <p class="uk-text-right">
+            <a class="uk-button uk-button-primary" type="button" href="{% url 'home' %}">Go Home</a>
+            <button class="uk-button uk-button-default uk-modal-close" type="button" id="continue">Continue Watching</button>
+        </p>
+      </div>
+  </div>
 {% endblock %}
 {% endblock %}
 {% block extra_js %}

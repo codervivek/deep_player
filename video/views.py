@@ -294,33 +294,35 @@ def sceneSearch(request):
             else:
                 return render(request, 'video/video_detail.html',{'video':m})
         else:
+            print(qs)
             for m in qs:
                 print(m)
                 string = m.json
                 json_obj=json.loads(string)
                 for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
-                    # print(line["lines"])
-                    text=line["lines"][0]["text"]
-                    if transript.lower() in text.lower():
-                        print("xyz")
-                        if face:
-                            print(face)
-                            for person in json_obj["breakdowns"][0]["insights"]["faces"]:
-                                print(person["name"])
-                                if person["name"].lower() in face.lower():
-                                    timestr = line["lines"][0]["timeRange"]["start"]
-                                    timestr = timestr.split('.')[0]
-                                    ftr = [3600,60,1]
-                                    string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
-                                    return render(request, 'scene.html', {'time':string,'video':m})
-                            return render(request,'video/video_list.html',{'video_list':Video.objects.all}) 
-                        timestr = line["lines"][0]["timeRange"]["start"]
-                        timestr = timestr.split('.')[0]
-                        ftr = [3600,60,1]
-                        string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
-                        return render(request, 'scene.html', {'time':string,'video':m})
-            else:
-                raise Http404 
+                    print(line["lines"][0]["text"].lower())
+                    for z in line["lines"]:
+                        text=z["text"]
+                        print(transript.lower())
+                        if transript.lower() in text.lower():
+                            print("xyz")
+                            if face:
+                                print(face)
+                                for person in json_obj["breakdowns"][0]["insights"]["faces"]:
+                                    print(person["name"])
+                                    if person["name"].lower() in face.lower():
+                                        timestr = line["lines"][0]["timeRange"]["start"]
+                                        timestr = timestr.split('.')[0]
+                                        ftr = [3600,60,1]
+                                        string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                        return render(request, 'scene.html', {'time':string,'video':m})
+                                return render(request,'video/video_list.html',{'video_list':Video.objects.all}) 
+                            timestr = line["lines"][0]["timeRange"]["start"]
+                            timestr = timestr.split('.')[0]
+                            ftr = [3600,60,1]
+                            string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                            return render(request, 'scene.html', {'time':string,'video':m})
+            return render(request,'video/video_list.html',{'video_list':Video.objects.all})     
 
 
 
