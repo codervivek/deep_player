@@ -271,14 +271,13 @@ def sceneSearch(request):
                 for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
                     # print(line["lines"])
                     text=line["lines"][0]["text"]
-                    counter = len([x for x in text.split() if x == transript])
-                    if counter>0:
+                    if transript.lower() in text.lower():
                         print("xyz")
                         if face:
                             print(face)
                             for person in json_obj["breakdowns"][0]["insights"]["faces"]:
                                 print(person["name"])
-                                if len([x for x in person["name"].split() if x.lower() == face.lower()]):
+                                if person["name"].lower() in face.lower():
                                     timestr = line["lines"][0]["timeRange"]["start"]
                                     timestr = timestr.split('.')[0]
                                     ftr = [3600,60,1]
@@ -302,14 +301,13 @@ def sceneSearch(request):
                 for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
                     # print(line["lines"])
                     text=line["lines"][0]["text"]
-                    counter = len([x for x in text.split() if x.lower() == transript.lower()])
-                    if counter>0:
+                    if transript.lower() in text.lower():
                         print("xyz")
                         if face:
                             print(face)
                             for person in json_obj["breakdowns"][0]["insights"]["faces"]:
                                 print(person["name"])
-                                if len([x for x in person["name"].split() if x.lower() == face.lower()]):
+                                if person["name"].lower() in face.lower():
                                     timestr = line["lines"][0]["timeRange"]["start"]
                                     timestr = timestr.split('.')[0]
                                     ftr = [3600,60,1]
