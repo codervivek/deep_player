@@ -1,0 +1,102 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "Deep Player",
+    "scope": "/",
+    "display": "browser",
+    "start_url": "http://deep-player.ap-south-1.elasticbeanstalk.com/",
+    "short_name": "Deep Player",
+    "theme_color": "transparent",
+    "description": "An online video streaming service which automatically extracts insights like actors, scenes, keywords and multilingual subtitles using Microsoft's Video Indexer API.",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/aba30363-468b-dae6-9dbc-9b9ec1ca374c.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/d52a41fe-d9ec-396a-f2ef-39109fa5ec5f.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/899e2fc7-c6f4-b984-d53a-718aee90bf1d.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/6a41f53a-663d-1961-335c-d1280528064e.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/50ec816a-ee7d-ad5c-cbed-78df8a5bfd97.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/d83058e8-1218-8202-d75b-ab3b17ce7ecd.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a2921349-d47f-4a41-b7d7-1683aa7a2e13.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/cfe43b95-2f71-7aaf-4774-25155f9937af.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/4baa4738-a004-16fb-7d46-377b28e045e8.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/cb037a2f-1a8d-b252-5b78-7ef3825476e1.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/be80096f-ed7e-740a-b1ad-f6ea3701d6ac.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/7a448139-d90d-e600-e366-1de4dd44cc74.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/2d2e30ef-b4e4-c304-0f71-ac902f04801e.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ebe443d0-2762-ebe3-ff2e-9d414690cd7e.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/555b578c-3750-97cb-af35-6768c694ccae.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/17c6a951-b803-686f-7083-4634a9fa6b14.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/64641347-d4a2-d09f-b4c6-3eeb347a8e7e.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ]
+}

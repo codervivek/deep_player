@@ -149,13 +149,16 @@ from django.http import HttpResponse
 def sceneSearch(request):
     qs = Video.objects.all()
     movie = request.GET.get('movie')
+    transript = request.GET.get('transcript')
+    print(movie)
     m = 'abc'
     string = 'ab'
-    if movie:
+    if movie and not transript:
         query = SearchQuery(movie)
         vector=SearchVector('name')
         qs = qs.annotate(search=vector).filter(search=query)
         qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+        print(qs)
         m = qs[:1]
         q = request.GET.get('q')
         if not q:
@@ -198,7 +201,7 @@ def sceneSearch(request):
         return render(request, 'scene.html', {'time':string,'video':m[0]})
         # return HttpResponse(json.dumps(json_obj), content_type="application/json")
         
-    else:
+    elif not transript:
         m = qs
         q = request.GET.get('q')
         if not q:
@@ -247,6 +250,57 @@ def sceneSearch(request):
             print("5")
             return render(request, 'video/video_list.html',{'video_list':m})
         conn.close()
+    else:
+        movie=request.GET.get('movie')
+        qs = Video.objects.all()
+        if movie:
+            query = SearchQuery(movie)
+            vector=SearchVector('name')
+            qs = qs.annotate(search=vector).filter(search=query)
+            qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+            print(qs)
+            m = qs[0]
+            if m:
+                print(m)
+                string = m.json
+                # print(string)
+                json_obj=json.loads(string)
+                for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
+                    # print(line["lines"])
+                    text=line["lines"][0]["text"]
+                    print(text)
+                    print(transript)
+                    counter = len([x for x in text.split() if x == transript])
+                    if counter>0:
+                        timestr = line["lines"][0]["timeRange"]["start"]
+                        timestr = timestr.split('.')[0]
+                        ftr = [3600,60,1]
+                        string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                        return render(request, 'scene.html', {'time':string,'video':m})
+                else:
+                    return render(request, 'video/video_detail.html',{'video':m})
+            else:
+                return render(request, 'video/video_list.html',{'video_list':m})
+        else:
+            for m in qs:
+                print(m)
+                string = m.json
+                # print(string)
+                json_obj=json.loads(string)
+                for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
+                    # print(line["lines"])
+                    text=line["lines"][0]["text"]
+                    counter = len([x for x in text.split() if x == transript])
+                    if counter>0:
+                        timestr = line["lines"][0]["timeRange"]["start"]
+                        timestr = timestr.split('.')[0]
+                        ftr = [3600,60,1]
+                        string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                        return render(request, 'scene.html', {'time':string,'video':m})
+                else:
+                    return render(request, 'video/video_detail.html',{'video':m})
+            else:
+                return render(request, 'video/video_list.html',{'video_list':m})
 
 
 

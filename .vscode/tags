@@ -11,16 +11,16 @@
 0005_video_processed.py	../video/migrations/0005_video_processed.py	1;"	kind:file	line:1
 0006_video_adult.py	../video/migrations/0006_video_adult.py	1;"	kind:file	line:1
 ALLOWED_HOSTS	../deep_player/settings.py	/^ALLOWED_HOSTS = ['13.92.247.122','deep-player.azurewebsites.net','localhost','*']$/;"	kind:variable	line:28
-AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:111
+AUTH_PASSWORD_VALIDATORS	../deep_player/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:112
 BASE_DIR	../deep_player/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
 Command	../video/management/commands/createsu.py	/^class Command(BaseCommand):$/;"	kind:class	line:5
 DATABASES	../deep_player/settings.py	/^    DATABASES = {$/;"	kind:variable	line:78
 DATABASES	../deep_player/settings.py	/^    DATABASES = {$/;"	kind:variable	line:89
-DEBUG	../deep_player/settings.py	/^DEBUG = False$/;"	kind:variable	line:26
+DEBUG	../deep_player/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
 INSTALLED_APPS	../deep_player/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
-LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:130
-MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:146
-MEDIA_URL	../deep_player/settings.py	/^MEDIA_URL = '\/media\/'/;"	kind:variable	line:147
+LANGUAGE_CODE	../deep_player/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:131
+MEDIA_ROOT	../deep_player/settings.py	/^MEDIA_ROOT = '\/home\/vivekraj\/django_test\/deep_player\/deep_player\/media'$/;"	kind:variable	line:147
+MEDIA_URL	../deep_player/settings.py	/^MEDIA_URL = '\/media\/'/;"	kind:variable	line:148
 MIDDLEWARE	../deep_player/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:43
 Meta	../deep_player/forms.py	/^    class Meta:$/;"	kind:class	line:11
 Meta	../deep_player/forms.py	/^    class Meta:$/;"	kind:class	line:19
@@ -31,20 +31,19 @@ Migration	../video/migrations/0004_auto_20171019_0958.py	/^class Migration(migra
 Migration	../video/migrations/0005_video_processed.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
 Migration	../video/migrations/0006_video_adult.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
 ROOT_URLCONF	../deep_player/settings.py	/^ROOT_URLCONF = 'deep_player.urls'$/;"	kind:variable	line:53
-STATIC_ROOT	../deep_player/settings.py	/^STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")$/;"	kind:variable	line:144
-STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:145
+STATIC_URL	../deep_player/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:146
 SearchListView	../video/views.py	/^class SearchListView(ListView):$/;"	kind:class	line:132
 SignUpForm	../deep_player/forms.py	/^class SignUpForm(UserCreationForm):$/;"	kind:class	line:6
 TEMPLATES	../deep_player/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
-TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:132
-USE_I18N	../deep_player/settings.py	/^USE_I18N = True$/;"	kind:variable	line:134
-USE_L10N	../deep_player/settings.py	/^USE_L10N = True$/;"	kind:variable	line:136
-USE_TZ	../deep_player/settings.py	/^USE_TZ = True$/;"	kind:variable	line:138
+TIME_ZONE	../deep_player/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:133
+USE_I18N	../deep_player/settings.py	/^USE_I18N = True$/;"	kind:variable	line:135
+USE_L10N	../deep_player/settings.py	/^USE_L10N = True$/;"	kind:variable	line:137
+USE_TZ	../deep_player/settings.py	/^USE_TZ = True$/;"	kind:variable	line:139
 UploadForm	../deep_player/forms.py	/^class UploadForm(forms.Form):$/;"	kind:class	line:15
 Video	../video/models.py	/^class Video(models.Model):$/;"	kind:class	line:7
 VideoConfig	../video/apps.py	/^class VideoConfig(AppConfig):$/;"	kind:class	line:4
 VideoDetailView	../video/views.py	/^class VideoDetailView(generic.DetailView):$/;"	kind:class	line:75
-VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:253
+VideoListView	../video/views.py	/^class VideoListView(ListView):$/;"	kind:class	line:255
 WSGI_APPLICATION	../deep_player/settings.py	/^WSGI_APPLICATION = 'deep_player.wsgi.application'$/;"	kind:variable	line:71
 __init__.py	../deep_player/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/__init__.py	1;"	kind:file	line:1
@@ -53,7 +52,7 @@ __init__.py	../video/management/commands/__init__.py	1;"	kind:file	line:1
 __init__.py	../video/migrations/__init__.py	1;"	kind:file	line:1
 __str__	../video/models.py	/^    def __str__(self):$/;"	kind:member	line:28
 admin.py	../video/admin.py	1;"	kind:file	line:1
-adult	../video/models.py	/^    adult=models.CharField(max_length=1,null=True)$/;"	kind:variable	line:23
+adult	../video/models.py	/^    adult=models.CharField(max_length=1,null=True, blank=True)$/;"	kind:variable	line:23
 application	../deep_player/main.py	/^application = get_wsgi_application()$/;"	kind:variable	line:5
 application	../deep_player/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
 apps.py	../video/apps.py	1;"	kind:file	line:1
@@ -84,13 +83,13 @@ get_queryset	../video/views.py	/^    def get_queryset(self):$/;"	kind:member	lin
 handle	../video/management/commands/createsu.py	/^    def handle(self, *args, **options):$/;"	kind:member	line:7
 index	../video/views.py	/^def index(request):$/;"	kind:function	line:27
 initial	../video/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
-json	../video/models.py	/^    json = models.TextField(max_length=500000, null=True)$/;"	kind:variable	line:19
+json	../video/models.py	/^    json = models.TextField(max_length=500000, null=True, blank=True)$/;"	kind:variable	line:19
 last_name	../deep_player/forms.py	/^    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')$/;"	kind:variable	line:8
 main.py	../deep_player/main.py	1;"	kind:file	line:1
 manage.py	../manage.py	1;"	kind:file	line:1
 model	../deep_player/forms.py	/^        model = User$/;"	kind:variable	line:12
 model	../video/views.py	/^    model = Video$/;"	kind:variable	line:133
-model	../video/views.py	/^    model = Video/;"	kind:variable	line:254
+model	../video/views.py	/^    model = Video/;"	kind:variable	line:256
 model	../video/views.py	/^    model=Video$/;"	kind:variable	line:76
 model_name	../video/migrations/0002_video_thumbnail.py	/^            model_name='video',$/;"	kind:variable	line:16
 model_name	../video/migrations/0003_auto_20171019_0953.py	/^            model_name='video',$/;"	kind:variable	line:16
@@ -116,12 +115,12 @@ operations	../video/migrations/0003_auto_20171019_0953.py	/^    operations = [$/
 operations	../video/migrations/0004_auto_20171019_0958.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0005_video_processed.py	/^    operations = [$/;"	kind:variable	line:14
 operations	../video/migrations/0006_video_adult.py	/^    operations = [$/;"	kind:variable	line:14
-processed	../video/models.py	/^    processed=models.CharField(max_length=3, null=True)$/;"	kind:variable	line:21
+processed	../video/models.py	/^    processed=models.CharField(max_length=3, null=True, blank=True)$/;"	kind:variable	line:21
 sceneSearch	../video/views.py	/^def sceneSearch(request):$/;"	kind:function	line:149
 settings.py	../deep_player/settings.py	1;"	kind:file	line:1
 signup	../video/views.py	/^def signup(request):$/;"	kind:function	line:11
 tests.py	../video/tests.py	1;"	kind:file	line:1
-thumbnail	../video/models.py	/^    thumbnail = models.TextField(max_length=1000, null=True)$/;"	kind:variable	line:17
+thumbnail	../video/models.py	/^    thumbnail = models.TextField(max_length=1000, null=True, blank=True)$/;"	kind:variable	line:17
 url	../deep_player/forms.py	/^    url = forms.CharField(max_length=1000,help_text="Enter the URL of the video")$/;"	kind:variable	line:17
 urlpatterns	../deep_player/urls.py	/^urlpatterns = [$/;"	kind:variable	line:9
 urlpatterns	../video/urls.py	/^urlpatterns = [$/;"	kind:variable	line:7

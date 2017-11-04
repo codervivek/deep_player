@@ -14,13 +14,13 @@ class Video(models.Model):
 
     embed = models.TextField(max_length=2000, null=True, blank=True, help_text='Enter the ID of Video')
 
-    thumbnail = models.TextField(max_length=1000, null=True)
+    thumbnail = models.TextField(max_length=1000, null=True, blank=True)
 
-    json = models.TextField(max_length=500000, null=True)
+    json = models.TextField(max_length=5000000, null=True, blank=True)
 
-    processed=models.CharField(max_length=3, null=True)
+    processed=models.CharField(max_length=3, null=True, blank=True)
 
-    adult=models.CharField(max_length=1,null=True)
+    adult=models.CharField(max_length=1,null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('video-detail', args=[str(self.id)])

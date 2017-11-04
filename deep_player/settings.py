@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'eyr8=0a6ou02h&y-slh!g4g+nppr8l%3!@ajzf8usm87ii)tjx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['13.92.247.122','deep-player.azurewebsites.net','localhost','*']
 
@@ -86,23 +86,23 @@ if 'RDS_DB_NAME' in os.environ:
         }
     }
 else:
-	DATABASES = {
-	    'default': {
-	        'ENGINE': 'django.db.backends.sqlite3',
-	        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-	    }
-	}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'deep_player',
+            'USER': 'vivekraj',
+            'PASSWORD': 'heysiri',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
 
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #         'NAME': 'deep_player',
-    #         'USER': 'vivekraj',
-    #         'PASSWORD': 'heysiri',
-    #         'HOST': 'localhost',
-    #         'PORT': '',
-    #     }
-    # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 
@@ -142,7 +142,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATIC_URL = '/static/'
 MEDIA_ROOT = '/home/vivekraj/django_test/deep_player/deep_player/media'
 MEDIA_URL = '/media/'

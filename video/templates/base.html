@@ -7,6 +7,7 @@
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" />
+    <link href="{% static "PWA/manifest.json" %}" rel="manifest" />
     <link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans" rel="stylesheet"> 
     <style>
         h1,h6{
@@ -98,7 +99,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
-
+<script src="{% static "SW3/pwabuilder-sw-register.js" %}"></script>
   {% block extra_js %}
   {% endblock extra_js %}  
 </body>

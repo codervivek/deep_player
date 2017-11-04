@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls,name='admin'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^signup/$', signup, name='signup'),
-    url(r'^.well-known/acme-challenge/96iA9V5G6KycDIpqxGEwFENJkrrvLz6W7xRUm3_wwek/$',xyz, name='xyz')
+    url(r'^abc/$',xyz, name='xyz')
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
