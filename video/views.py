@@ -145,6 +145,7 @@ class SearchListView(ListView):
 
 import json
 from django.http import HttpResponse
+from django.http import Http404  
 # import 
 def sceneSearch(request):
     qs = Video.objects.all()
@@ -321,7 +322,7 @@ def sceneSearch(request):
                         string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
                         return render(request, 'scene.html', {'time':string,'video':m})
             else:
-                return render(request, 'video/video_list.html',{'video_list':Video.objects.all})
+                raise Http404 
 
 
 
