@@ -1,0 +1,60 @@
+1517393001268	geckodriver	INFO	geckodriver 0.19.1
+1517393001286	geckodriver	INFO	Listening on 127.0.0.1:46950
+1517393002433	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-profile" "/tmp/rust_mozprofile.8vtBf1o173Zy"
+*** You are running in headless mode.
+1517393003565	Marionette	INFO	Enabled via --marionette
+1517393005882	Marionette	INFO	Listening on port 41467
+1517393006001	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://keepvid.com/new-script/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 8543, Chrome_ChildThread] WARNING: pipe error (30): Connection reset by peer: file /build/firefox-iXzMln/firefox-58.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 8543, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-iXzMln/firefox-58.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1517395282955	geckodriver	INFO	geckodriver 0.19.1
+1517395282965	geckodriver	INFO	Listening on 127.0.0.1:48597
+1517395284075	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-profile" "/tmp/rust_mozprofile.SbZ4hGyLyOKp"
+*** You are running in headless mode.
+1517395284672	Marionette	INFO	Enabled via --marionette
+1517395286595	Marionette	INFO	Listening on port 38953
+1517395286687	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517395294090	geckodriver	INFO	geckodriver 0.19.1
+1517395294095	geckodriver	INFO	Listening on 127.0.0.1:40945
+1517395294973	geckodriver	INFO	geckodriver 0.19.1
+1517395294982	geckodriver	INFO	Listening on 127.0.0.1:53841
+1517395295127	geckodriver	INFO	geckodriver 0.19.1
+1517395295132	geckodriver	INFO	Listening on 127.0.0.1:37165
+1517395295217	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-profile" "/tmp/rust_mozprofile.fjid8oXTd216"
+*** You are running in headless mode.
+1517395295921	Marionette	INFO	Enabled via --marionette
+JavaScript warning: https://keepvid.com/new-script/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1517395296162	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-profile" "/tmp/rust_mozprofile.OWT789E9MjqL"
+*** You are running in headless mode.
+1517395296336	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-profile" "/tmp/rust_mozprofile.hjWVHpIoUWl6"
+*** You are running in headless mode.
+1517395297080	Marionette	INFO	Enabled via --marionette
+1517395297179	Marionette	INFO	Enabled via --marionette
+1517395299082	Marionette	INFO	Listening on port 35321
+1517395299130	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517395301002	Marionette	INFO	Listening on port 38847
+1517395301046	Marionette	INFO	Listening on port 33179
+1517395301063	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517395301079	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://keepvid.com/new-script/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://keepvid.com/new-script/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://keepvid.com/new-script/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1517395479365	geckodriver	INFO	geckodriver 0.19.1
+1517395479368	geckodriver	INFO	Listening on 127.0.0.1:55967
+1517395480469	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.kC6BPITeXpCc"
+1517395481526	Marionette	INFO	Enabled via --marionette
+1517395483600	Marionette	INFO	Listening on port 45323
+1517395483682	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://keepvid.com/new-script/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1517395516640	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: error
+1517395536893	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1517395722965	geckodriver	INFO	geckodriver 0.19.1
+1517395722970	geckodriver	INFO	Listening on 127.0.0.1:45378
+1517395724084	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.TEewI8qDdNsv"
+1517395724692	Marionette	INFO	Enabled via --marionette
+1517395726632	Marionette	INFO	Listening on port 36332
+1517395726695	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://keepvid.com/new-script/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 14792, Chrome_ChildThread] WARNING: pipe error (35): Connection reset by peer: file /build/firefox-iXzMln/firefox-58.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 14792, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-iXzMln/firefox-58.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353

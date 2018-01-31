@@ -342,3 +342,48 @@ def info(request,pk,time):
                  actor.append(person)
                  break
     return render(request, 'info.html',{'person_list':actor})
+
+from urllib.request import urlretrieve
+import time
+from selenium import webdriver
+from bs4 import BeautifulSoup
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
+def uploadvideo(request):
+    link=request.POST["videoid"]
+    url="https://keepvid.com/?url=https://www.youtube.com/watch?v="+link
+    print(url)
+    binary = FirefoxBinary('./geckodriver')
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Firefox(firefox_options=options)
+    driver.get(url)
+    time.sleep(7)
+    html = driver.page_source
+    soup  = BeautifulSoup(html,'lxml')
+    for a in soup.find_all('a', href=True):
+        if len(a["href"])>100:
+            headers = {
+                # Request headers
+                'Content-Type': 'multipart/form-data',
+                'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+            }
+            params = urllib.parse.urlencode({
+                # Request parameters
+                'name': (a["href"].split('='))[-1],
+                'privacy': 'Public',
+                'videoUrl': a['href'],
+            })
+            # try:
+            conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+            conn.request("POST", "/Breakdowns/Api/Partner/Breakdowns?%s" % params, "", headers)
+            response = conn.getresponse()
+            string = response.read().decode('utf-8')
+            json_obj = json.loads(string)
+            new_video = Video.objects.create(name=(a["href"].split('='))[-1],embed=json_obj,user=request.user)
+            new_video.save()
+            # print(response.content)
+            conn.close()
+            break
+    driver.quit()
