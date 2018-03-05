@@ -352,7 +352,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def uploadvideo(request):
     link=request.POST["videoid"]
-    url="https://keepvid.com/?url=https://www.youtube.com/watch?v="+link
+    url = "https://www.ssyoutube.com/watch?"+link.split("?")[-1]
     print(url)
     binary = FirefoxBinary('./geckodriver')
     options = Options()
@@ -369,6 +369,7 @@ def uploadvideo(request):
                 'Content-Type': 'multipart/form-data',
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
             }
+            print(a["href"])
             params = urllib.parse.urlencode({
                 # Request parameters
                 'name': (a["href"].split('='))[-1],
