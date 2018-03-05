@@ -362,8 +362,11 @@ def uploadvideo(request):
     driver.get(url)
     print("jsakl")
     time.sleep(7)
+    print("jdhjks")
     html = driver.page_source
+    print("ksjkls")
     soup  = BeautifulSoup(html,'lxml')
+    print("dksjkl")
     print(soup)
     for a in soup.find_all('a', href=True):
         if len(a["href"])>100:
