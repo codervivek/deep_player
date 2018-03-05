@@ -374,7 +374,7 @@ def uploadvideo(request):
             params = urllib.parse.urlencode({
                 # Request parameters
                 print("name: "+(a["href"].split('='))[-1])
-                print("url" a['href'])
+                print("url"+a['href'])
                 'name': (a["href"].split('='))[-1],
                 'privacy': 'Public',
                 'videoUrl': a['href'],
