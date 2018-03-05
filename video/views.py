@@ -355,10 +355,12 @@ def uploadvideo(request):
     url = "https://www.ssyoutube.com/watch?"+link.split("?")[-1]
     print(url)
     binary = FirefoxBinary('./geckodriver')
+    print("djhjfkd")
     options = Options()
     options.add_argument("--headless")
     driver = webdriver.Firefox(firefox_options=options)
     driver.get(url)
+    print("jsakl")
     time.sleep(7)
     html = driver.page_source
     soup  = BeautifulSoup(html,'lxml')
