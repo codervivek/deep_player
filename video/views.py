@@ -352,7 +352,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def uploadvideo(request):
     link=request.POST["videoid"]
-    url="https://keepvid.com/?url="+link
+    url="https://keepvid.com/?url=https://www.youtube.com/watch?v="+link
     print(url)
     binary = FirefoxBinary('./geckodriver')
     print("djhjfkd")
