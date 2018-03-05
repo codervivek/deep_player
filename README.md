@@ -75,7 +75,7 @@ TODO
 ## Authors
 
 * **Vivek Raj**  - [Deep Player](https://github.com/codervivek/deep_player)
-* **Ekagra Ranjan**
+* **[Ekagra Ranjan](https://github.com/ekagra-ranjan)**
 * **[Pavan Kumar](https://github.com/pavan71198)**
 
 ## License
