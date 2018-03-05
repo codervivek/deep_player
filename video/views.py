@@ -355,18 +355,13 @@ def uploadvideo(request):
     url="https://keepvid.com/?url=https://www.youtube.com/watch?v="+link
     print(url)
     binary = FirefoxBinary('./geckodriver')
-    print("djhjfkd")
     options = Options()
     options.add_argument("--headless")
     driver = webdriver.Firefox(firefox_options=options)
     driver.get(url)
-    print("jsakl")
     time.sleep(7)
-    print("jdhjks")
     html = driver.page_source
-    print("ksjkls")
     soup  = BeautifulSoup(html,'lxml')
-    print("dksjkl")
     print(soup)
     for a in soup.find_all('a', href=True):
         if len(a["href"])>100:
@@ -375,8 +370,6 @@ def uploadvideo(request):
                 'Content-Type': 'multipart/form-data',
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
             }
-            print(a["href"])
-            print(a["href"].split('=')[-1])
             params = urllib.parse.urlencode({
                 # Request parameters
                 'name': (a["href"].split('='))[-1],
