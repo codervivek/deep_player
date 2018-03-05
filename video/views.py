@@ -371,10 +371,9 @@ def uploadvideo(request):
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
             }
             print(a["href"])
+            print(a["href"].split('=')[-1])
             params = urllib.parse.urlencode({
                 # Request parameters
-                print("name: "+(a["href"].split('='))[-1])
-                print("url"+a['href'])
                 'name': (a["href"].split('='))[-1],
                 'privacy': 'Public',
                 'videoUrl': a['href'],
