@@ -362,7 +362,6 @@ def uploadvideo(request):
     time.sleep(7)
     html = driver.page_source
     soup  = BeautifulSoup(html,'lxml')
-    print(soup)
     for a in soup.find_all('a', href=True):
         if len(a["href"])>100:
             headers = {
