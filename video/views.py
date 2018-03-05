@@ -362,8 +362,7 @@ def uploadvideo(request):
     time.sleep(7)
     html = driver.page_source
     soup  = BeautifulSoup(html,'lxml')
-    # print(soup)
-    print(request.POST["videoName"])
+    print(soup)
     for a in soup.find_all('a', href=True):
         if len(a["href"])>100:
             headers = {
@@ -373,7 +372,7 @@ def uploadvideo(request):
             }
             params = urllib.parse.urlencode({
                 # Request parameters
-                'name': request.POST["videoName"],
+                'name': ((a["href"].split('='))[-1]).replace('+',' '),
                 'privacy': 'Public',
                 'videoUrl': a['href'],
             })
@@ -383,7 +382,7 @@ def uploadvideo(request):
             response = conn.getresponse()
             string = response.read().decode('utf-8')
             json_obj = json.loads(string)
-            new_video = Video.objects.create(name=request.POST["videoName"],embed=json_obj,user=request.user)
+            new_video = Video.objects.create(name=((a["href"].split('='))[-1]).replace('+',' '),embed=json_obj,user=request.user)
             new_video.save()
             # print(response.content)
             conn.close()
