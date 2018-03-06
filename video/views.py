@@ -388,4 +388,4 @@ def uploadvideo(request):
             conn.close()
             break
     driver.quit()
-    return HttpResponse(json.dumps(json.loads({"status":"success"})), content_type="application/json")
+    return HttpResponse(json.dumps(json.loads("status:success")), content_type="application/json")
