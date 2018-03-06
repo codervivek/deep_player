@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^scene/$', views.sceneSearch, name='sceneSearch'),
     url(r'^info/(?P<pk>\d+)/(?P<time>\d+)$', views.info, name='info'),
     url(r'^uploadvideo/$', views.uploadvideo, name='uploadvideo'),
+    url(r'^luis/$', views.luis, name='luis'),
 ]
