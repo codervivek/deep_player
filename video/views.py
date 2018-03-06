@@ -352,8 +352,8 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def uploadvideo(request):
     link=request.POST["videoid"]
+    videoname=request.POST["videoname"]
     url="https://keepvid.com/?url=https://www.youtube.com/watch?v="+link
-    print(url)
     binary = FirefoxBinary('./geckodriver')
     options = Options()
     options.add_argument("--headless")
@@ -371,7 +371,8 @@ def uploadvideo(request):
             }
             params = urllib.parse.urlencode({
                 # Request parameters
-                'name': ((a["href"].split('='))[-1]).replace('+',' '),
+                # 'name': ((a["href"].split('='))[-1]).replace('+',' '),
+                'name': videoname,
                 'privacy': 'Public',
                 'videoUrl': a['href'],
             })
@@ -381,9 +382,10 @@ def uploadvideo(request):
             response = conn.getresponse()
             string = response.read().decode('utf-8')
             json_obj = json.loads(string)
-            new_video = Video.objects.create(name=((a["href"].split('='))[-1]).replace('+',' '),embed=json_obj,user=request.user)
+            new_video = Video.objects.create(name=videoname,embed=json_obj,user=request.user)
             new_video.save()
             # print(response.content)
             conn.close()
             break
     driver.quit()
+    return HttpResponse(json.dumps(json.loads({"status":"success"})), content_type="application/json")
