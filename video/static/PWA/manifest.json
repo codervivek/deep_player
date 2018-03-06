@@ -4,7 +4,7 @@
     "name": "Deep Player",
     "scope": "/",
     "display": "browser",
-    "start_url": "http://deep-player.ap-south-1.elasticbeanstalk.com/",
+    "start_url": "http://deep-player.eastus.cloudapp.azure.com/",
     "short_name": "Deep Player",
     "theme_color": "transparent",
     "description": "An online video streaming service which automatically extracts insights like actors, scenes, keywords and multilingual subtitles using Microsoft's Video Indexer API.",
