@@ -387,3 +387,206 @@ def uploadvideo(request):
             conn.close()
             break
     driver.quit()
+
+
+import urllib.request, json
+
+def luis(request): 
+    luis_link="https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/822c1f0f-cf42-4a00-beac-ff2a9200b997?subscription-key=7dae807919914ebcb3d78d780aa36b99&verbose=true&timezoneOffset=0&q="
+    qx=request.GET.get('q').replace(' ','%20')
+    print(luis_link+qx)
+    with urllib.request.urlopen(luis_link+qx) as url:
+        data = json.loads(url.read().decode())
+        title=None
+        sc=None
+        phrase=None
+        per=None
+        for x in data["entities"]:
+            print(x)
+            if x["type"] == "Entertainment.Title":
+                title=x["entity"]
+            if x["type"] == "scene":
+                sc=x["entity"]
+            if x["type"] == "phrase":
+                phrase=x["entity"]
+            if x["type"] == "Entertainment.Person":
+                per=x["entity"]
+        print(title,sc,phrase,per)
+        qs = Video.objects.all()
+        movie = title
+        transript = phrase
+        print(movie)
+        m = 'abc'
+        string = 'ab'
+        if movie and not transript:
+            query = SearchQuery(movie)
+            vector=SearchVector('name')
+            qs = qs.annotate(search=vector).filter(search=query)
+            qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+            print(qs)
+            m = qs[:1]
+            q = sc
+            if not q:
+                return render(request, 'scene.html', {'video':m[0]})
+            print(m[0].name)
+            headers = {
+                # Request headers
+                'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+            }
+
+            params = urllib.parse.urlencode({
+                # Request parameters
+                'id': m[0].embed,
+                'query': q,
+                'pageSize': '1',
+            })
+
+            # try:
+            conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+            conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
+            print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
+            response = conn.getresponse()
+            string = response.read().decode('utf-8')
+            json_obj=json.loads(string)
+            if not (json_obj["results"]):
+                return render(request,'failed.html')
+            if(json_obj["results"][0]):
+                string=json_obj["results"][0]["searchMatches"][0]["startTime"]
+                timestr = string
+                timestr = timestr.split('.')[0]
+                ftr = [3600,60,1]
+                string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+            else:
+                string = 0
+            print(string)
+            conn.close()
+            # except Exception as e:
+            #     print("[Errno {0}] {1}".format(e.errno, e.strerror))
+            # return render(request, 'video/video_detail.html', {'video': video})
+            return render(request, 'scene.html', {'time':string,'video':m[0]})
+            # return HttpResponse(json.dumps(json_obj), content_type="application/json")
+            
+        elif not transript:
+            m = qs
+            q = sc
+            if not q:
+                print("1")
+                return render(request, 'index.html',{'videos':Video.objects.all})
+            headers = {
+                # Request headers
+                'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
+            }
+
+            params = urllib.parse.urlencode({
+                # Request parameters
+                'query': q,
+            })
+
+            # try:
+            conn = http.client.HTTPSConnection('videobreakdown.azure-api.net')
+            conn.request("GET", "/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params, "", headers)
+            print("/Breakdowns/Api/Partner/Breakdowns/Search?%s" % params)
+            response = conn.getresponse()
+            string = response.read().decode('utf-8')
+            json_obj=json.loads(string)
+            print(json_obj)
+            if (len(json_obj["results"])==1):
+                if(json_obj["results"][0]):
+                    string=json_obj["results"][0]["searchMatches"][0]["startTime"]
+                    timestr = string
+                    timestr = timestr.split('.')[0]
+                    ftr = [3600,60,1]
+                    string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                    for vi in m:
+                        print("6")
+                        print(vi.embed)
+                        print(json_obj["results"][0]["id"])
+                        if(vi.embed==json_obj["results"][0]["id"]):
+                            print("2")
+                            return render(request, 'scene.html', {'time':string,'video':vi})
+                print("3")
+                return render(request, 'index.html',{'videos': Video.objects.all})
+            else:
+                if q:
+                    query = SearchQuery(q)
+                    vector = SearchVector('json','name')
+                    m = m.annotate(search=vector).filter(search=query)
+                    m = m.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+                print("5")
+                return render(request, 'video/video_list.html',{'video_list':m})
+            conn.close()
+        else:
+            movie=title
+            qs = Video.objects.all()
+            face=per
+            print(face)
+            if movie:
+                query = SearchQuery(movie)
+                vector=SearchVector('name')
+                qs = qs.annotate(search=vector).filter(search=query)
+                qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+                print(qs)
+                m = qs[0]
+                if m:
+                    print("kasjdkl")
+                    print(m.json)
+                    print("xyz")
+                    string = m.json
+                    # print(string)
+                    json_obj=json.loads(string)
+                    for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
+                        # print(line["lines"])
+                        for z in line["lines"]:
+                            text=z["text"]
+                            if transript.lower() in text.lower():
+                                print("xyz")
+                                if face:
+                                    print(face)
+                                    for person in json_obj["breakdowns"][0]["insights"]["faces"]:
+                                        print(person["name"])
+                                        if person["name"].lower() in face.lower():
+                                            timestr = line["lines"][0]["timeRange"]["start"]
+                                            timestr = timestr.split('.')[0]
+                                            ftr = [3600,60,1]
+                                            string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                            return render(request, 'scene.html', {'time':string,'video':m})
+                                    return render(request,'video/video_list.html',{'video_list':Video.objects.all})
+                                timestr = line["lines"][0]["timeRange"]["start"]
+                                timestr = timestr.split('.')[0]
+                                ftr = [3600,60,1]
+                                string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                return render(request, 'scene.html', {'time':string,'video':m})
+                    else:
+                        return render(request, 'video/video_detail.html',{'video':m})
+                else:
+                    return render(request, 'video/video_detail.html',{'video':m})
+            else:
+                print(qs)
+                for m in qs:
+                    print(m)
+                    string = m.json
+                    json_obj=json.loads(string)
+                    for line in json_obj["breakdowns"][0]["insights"]["transcriptBlocks"]:
+                        print(line["lines"][0]["text"].lower())
+                        for z in line["lines"]:
+                            text=z["text"]
+                            print(transript.lower())
+                            if transript.lower() in text.lower():
+                                print("xyz")
+                                if face:
+                                    print(face)
+                                    for person in json_obj["breakdowns"][0]["insights"]["faces"]:
+                                        print(person["name"])
+                                        if person["name"].lower() in face.lower():
+                                            timestr = line["lines"][0]["timeRange"]["start"]
+                                            timestr = timestr.split('.')[0]
+                                            ftr = [3600,60,1]
+                                            string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                            return render(request, 'scene.html', {'time':string,'video':m})
+                                    return render(request,'video/video_list.html',{'video_list':Video.objects.all}) 
+                                timestr = line["lines"][0]["timeRange"]["start"]
+                                timestr = timestr.split('.')[0]
+                                ftr = [3600,60,1]
+                                string=sum([a*b for a,b in zip(ftr, map(int,timestr.split(':')))])
+                                return render(request, 'scene.html', {'time':string,'video':m})
+                return render(request,'video/video_list.html',{'video_list':Video.objects.all})     
