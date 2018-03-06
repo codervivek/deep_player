@@ -412,23 +412,27 @@ def luis(request):
             if x["type"] == "Entertainment.Person":
                 per=x["entity"]
         print(title,sc,phrase,per)
+        if not title and not sc and not phrase and not per:
+            title=request.GET.get('title')
+            sc=request.GET.get('scene')
+            phrase=request.GET.get('phrase')
+            per=request.GET.get('person')
         qs = Video.objects.all()
         movie = title
         transript = phrase
         print(movie)
         m = 'abc'
         string = 'ab'
+        print(qs)
         if movie and not transript:
             query = SearchQuery(movie)
             vector=SearchVector('name')
             qs = qs.annotate(search=vector).filter(search=query)
             qs = qs.annotate(rank=SearchRank(vector, query)).order_by('-rank')
-            print(qs)
             m = qs[:1]
             q = sc
             if not q:
                 return render(request, 'scene.html', {'video':m[0]})
-            print(m[0].name)
             headers = {
                 # Request headers
                 'Ocp-Apim-Subscription-Key': '8eec2a625b584342b4adde9c7ea87c6a',
