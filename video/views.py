@@ -105,11 +105,15 @@ def fileupload(request):
             string = response.read().decode('utf-8')
             json_obj = json.loads(string)
             user1=User.objects.get(id=user1)
-            new_video = Video.objects.create(name=n,embed=json_obj,user=user1)
-            new_video.save()
-            # print(response.content)
             conn.close()
-            return redirect('home')
+            if json_obj.len() == 10 :
+                new_video = Video.objects.create(name=n,embed=json_obj,user=user1)
+                new_video.save()
+                return redirect('home')
+            else:
+                return redirect('home')
+            # print(response.content)
+            
             # except Exception as e:
             #     print("[Errno {0}] {1}".format(e.errno, e.strerror))
             #     return redirect('admin')
