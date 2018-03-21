@@ -106,7 +106,7 @@ def fileupload(request):
             json_obj = json.loads(string)
             user1=User.objects.get(id=user1)
             conn.close()
-            if type(json_obj) = type("abc"):
+            if type(json_obj) == type("abc"):
                 new_video = Video.objects.create(name=n,embed=json_obj,user=user1)
                 new_video.save()
                 return redirect('home')
