@@ -106,11 +106,14 @@ def fileupload(request):
             json_obj = json.loads(string)
             user1=User.objects.get(id=user1)
             conn.close()
-            if json_obj.len() == 10 :
-                new_video = Video.objects.create(name=n,embed=json_obj,user=user1)
-                new_video.save()
-                return redirect('home')
-            else:
+            try:
+                if json_obj.len() == 10 :
+                    new_video = Video.objects.create(name=n,embed=json_obj,user=user1)
+                    new_video.save()
+                    return redirect('home')
+                else:
+                    return redirect('home')
+            except:
                 return redirect('home')
             # print(response.content)
             
