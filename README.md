@@ -9,7 +9,7 @@ An online video streaming service which automatically extracts insights like act
 
 ## Videos
 
-[Youtube link](https://youtu.be/YiXngGW_TPM)
+[Youtube link](https://youtu.be/KBBF-ldqpAk)
 
 ## Getting Started
 
