@@ -70,16 +70,9 @@ in the directory which has manage.py to get your site up and running.
 * [PostgreSQL](https://www.postgresql.org/) -  A powerful, open source object-relational database system
 * [Microsoft Video Indexer API](https://azure.microsoft.com/en-us/services/cognitive-services/video-indexer/?cdn=disable) - A Video Indexing Service by Microsoft
 
-## Contributing
-
-TODO
 
 ## Authors
 
 * **Vivek Raj**  - [Deep Player](https://github.com/codervivek/deep_player)
 * **[Ekagra Ranjan](https://github.com/ekagra-ranjan)**
 * **[Pavan Kumar](https://github.com/pavan71198)**
-
-## License
-
-TODO
