@@ -1,6 +1,6 @@
 # Deep Player
 
-An online video streaming service which automatically extracts insights like actors, scenes, keywords and multilingual subtitles using Microsoft's Video Indexer API.
+An online video streaming service which automatically extracts insights like actors, scenes, keywords and multilingual subtitles using Microsoft's Video Indexer API. This project was was among top 10 pitches in the world (top 2 in India) in Microsoft Imagine Cup Big Idea 2018, was awarded runner-up in ON CAMPUS (senior league) out of 57 teams, winners in ONLINE (junior league) out of 245 registered students of Microsoft Code.Fun.Do 2017 held at IIT Guwahati and will be showcased on Microsoft IDC for the national level final round.
 
 ## Screenshots
 
@@ -10,6 +10,10 @@ An online video streaming service which automatically extracts insights like act
 ## Videos
 
 [Youtube link](https://youtu.be/KBBF-ldqpAk)
+
+## Additional Plugin
+
+[Deep Player Chrome Extension](https://github.com/pavan71198/Chrome-Extension-For-Deep-Player)
 
 ## Getting Started
 
