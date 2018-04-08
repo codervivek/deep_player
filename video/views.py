@@ -357,14 +357,14 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 def uploadvideo(request):
     link=request.POST["videoid"]
     videoname=request.POST["videoname"]
-    url="https://keepvid.com/?url=https://www.youtube.com/watch?v="+link
+    url="https://www.ssyoutube.com/watch?v="+link
     print(url)
     binary = FirefoxBinary('./geckodriver')
     options = Options()
     options.add_argument("--headless")
     driver = webdriver.Firefox(firefox_options=options)
     driver.get(url)
-    time.sleep(7)
+    time.sleep(30)
     html = driver.page_source
     soup  = BeautifulSoup(html,'lxml')
     for a in soup.find_all('a', href=True):
