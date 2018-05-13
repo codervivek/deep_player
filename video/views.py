@@ -364,7 +364,7 @@ def uploadvideo(request):
     options.add_argument("--headless")
     driver = webdriver.Firefox(firefox_options=options)
     driver.get(url)
-    time.sleep(30)
+    time.sleep(7)
     html = driver.page_source
     soup  = BeautifulSoup(html,'lxml')
     for a in soup.find_all('a', href=True):

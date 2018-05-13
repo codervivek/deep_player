@@ -1,7 +1,6 @@
 # Deep Player
 
-An online video streaming service which automatically extracts insights like actors, scenes, keywords and multilingual subtitles using Microsoft's Video Indexer API.  
-This project was was among [top 10](https://drive.google.com/file/d/1yawBJgIYZ1blg3pssEF_G9XO2RCXdU2z/view) pitches in the world (top 2 in India) in [Microsoft Imagine Cup Big Idea 2018](https://blogs.msdn.microsoft.com/microsoftimagine/2018/02/21/congratulations-to-the-2018-big-idea-challenge-winners/), was awarded runner-up in ON CAMPUS (senior league) out of 57 teams, winners in ONLINE (junior league) out of 245 registered students of Microsoft Code.Fun.Do 2017 held at IIT Guwahati and will be showcased on Microsoft IDC for the national level final round.
+An online video streaming service which automatically extracts insights like actors, scenes, keywords and multilingual subtitles using Microsoft's Video Indexer API.
 
 ## Screenshots
 
@@ -10,12 +9,7 @@ This project was was among [top 10](https://drive.google.com/file/d/1yawBJgIYZ1b
 
 ## Videos
 
-[Youtube link](https://youtu.be/KBBF-ldqpAk)
-
-## Additional Plugin
-
-[Deep Player Chrome Extension](https://github.com/pavan71198/Chrome-Extension-For-Deep-Player)  
-[Cortana Plugin](https://drive.google.com/open?id=1yITDduTQDfSXUOENmiWlkxbmMKStfC54)
+[Youtube link](https://youtu.be/YiXngGW_TPM)
 
 ## Getting Started
 
@@ -76,9 +70,16 @@ in the directory which has manage.py to get your site up and running.
 * [PostgreSQL](https://www.postgresql.org/) -  A powerful, open source object-relational database system
 * [Microsoft Video Indexer API](https://azure.microsoft.com/en-us/services/cognitive-services/video-indexer/?cdn=disable) - A Video Indexing Service by Microsoft
 
+## Contributing
+
+TODO
 
 ## Authors
 
 * **Vivek Raj**  - [Deep Player](https://github.com/codervivek/deep_player)
 * **[Ekagra Ranjan](https://github.com/ekagra-ranjan)**
 * **[Pavan Kumar](https://github.com/pavan71198)**
+
+## License
+
+TODO
